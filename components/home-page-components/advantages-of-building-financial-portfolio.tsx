@@ -20,7 +20,7 @@ function AdvantagesOfBuildingFinancialPortfolio() {
             <div className="flex flex-col justify-center lg:h-[1031px] space-y-16">
                 <h2>مزايا بناء المحفظة المالية</h2>
                 <h5 className="lg:w-[550px] mx-auto text-gray-400">درسنا السوق الاستثماري و التحديات التي يواجهها أصحاب رؤوس الاموال العالية ، و صممنا الخدمات التي تحتاجها لإدارة أموالك بتكلفة منخفضة و آلية سهلة و استراتيجيات مرنة</h5>
-                <div className="lg:flex justify-center grid justify-items-center sm:grid-cols-3 lg:grid-cols-4 gap-2.5 md:gap-10 lg:gap-16">
+                <div className="lg:flex justify-center grid justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 md:gap-10 lg:gap-16">
                     {items.map(({ title, description }) => (
                         <div key={title} className="flex flex-col justify-center bg-[#3E3E3E] h-[367px] lg:w-96 p-2.5 space-y-5 rounded-md">
                             <h4>{title}</h4>
