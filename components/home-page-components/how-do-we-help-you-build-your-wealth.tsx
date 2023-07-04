@@ -24,7 +24,7 @@ function HowDoWeHelpYouBuildYourWealth() {
     return (
         <div className="lg:h-[462px] max-w-7xl mx-auto text-center space-y-24">
             <h2>كيف نساعدك على بناء ثروتك؟</h2>
-            <div className="grid justify-items-center sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
+            <div className="grid justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 lg:gap-16 px-2.5">
                 {items.map(({ title, description }) => (
                     <div key={title} className="flex flex-col justify-center bg-[#3E3E3E] h-64 w-72 p-2.5 space-y-5 rounded-md">
                         <h4>{title}</h4>
