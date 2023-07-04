@@ -16,9 +16,9 @@ function Footer() {
 
     return (
         <footer className="h-[514px] bg-[#2E2E2E]">
-            <div className="max-w-7xl mx-auto py-16 space-y-14">
+            <div className="max-w-7xl mx-auto py-16 space-y-14 px-5">
                 <Image src={WafraDarkLogo} alt="wafra-logo" className="h-10 w-44" />
-                <div className="flex items-start gap-40">
+                <div className="flex items-start gap-20 sm:gap-40">
                     <div className="space-y-5">
                         <h6 className="text-xl">وفرة</h6>
                         {wafraItems.map((wafraItem) => (
