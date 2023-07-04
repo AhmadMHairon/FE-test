@@ -2,23 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    h1 {
-      @apply text-5xl;
+#__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#__next main {
+    flex: 1;
+    overflow-x: hidden;
+    background-color: white;
+}
+
+@layer utilities {
+   
+    .cards:hover > .card::after {
+        opacity: 1;
     }
-    h2 {
-      @apply text-4xl;
+    .card:hover::before {
+        opacity: 1;
     }
-    h3 {
-      @apply text-3xl;
+
+    .card:hover::before {
+        opacity: 1;
     }
-    h4 {
-      @apply text-2xl;
+
+    .card::before,
+    .card::after {
+        border-radius: inherit;
+        content: '';
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
     }
-    h5 {
-      @apply text-xl;
+
+    .card::before {
+        background: radial-gradient(
+            500px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.04),
+            transparent 40%
+        );
+        z-index: 3;
     }
-    a {
-      @apply text-blue-600 underline;
+
+    .card::after {
+        background: radial-gradient(
+            400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.25),
+            transparent 40%
+        );
+        z-index: 1;
     }
-  }
+}

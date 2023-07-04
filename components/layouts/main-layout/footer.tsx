@@ -1,40 +1,38 @@
-import Image from "next/image"
-import WafraDarkLogo from "@/components/assets/wafra-dark-logo.png"
+import Image from 'next/image';
+import WafraDarkLogo from '@/components/assets/wafra-dark-logo.png';
+import { Container } from '@/components/common/container';
+import Link from 'next/link';
 
 function Footer() {
+    const wafraItems = ['الرئيسية', 'عن وفرة', 'كيف ابدأ استثماري'];
 
-    const wafraItems = [
-        "الرئيسية",
-        "عن وفرة",
-        "كيف ابدأ استثماري"
-    ]
-
-    const importantLinks = [
-        "المدونة",
-        "سياسة الخصوصية",
-    ]
+    const importantLinks = ['المدونة', 'سياسة الخصوصية'];
+    // <Image src={WafraDarkLogo} alt="wafra-logo" className="h-10 w-44" />
 
     return (
-        <footer className="h-[514px] bg-[#2E2E2E]">
-            <div className="max-w-7xl mx-auto py-16 space-y-14 px-5">
-                <Image src={WafraDarkLogo} alt="wafra-logo" className="h-10 w-44" />
-                <div className="flex items-start gap-20 sm:gap-40">
-                    <div className="space-y-5">
-                        <h6 className="text-xl">وفرة</h6>
-                        {wafraItems.map((wafraItem) => (
-                            <p className="text-gray-500 text-xl" key={wafraItem}>{wafraItem}</p>
-                        ))}
-                    </div>
-                    <div className="space-y-5">
-                        <h6 className="text-xl">روابط مهمة</h6>
-                        {importantLinks.map((importantLink) => (
-                            <p className="text-gray-500 text-xl" key={importantLink}>{importantLink}</p>
-                        ))}
+        <footer>
+            <Container>
+                <div className="flex items-center justify-between border-y py-7 border-white/50">
+                    <Link href="/">
+                        <Image
+                            src={WafraDarkLogo}
+                            alt="wafra-logo"
+                            height={40}
+                            width={160}
+                            className="h-10 w-44 object-contain"
+                        />
+                    </Link>
+
+                    <div className='text-sm'>
+                        social medai icons
                     </div>
                 </div>
-            </div>
+                <div className='text-center text-sm text-white/40 py-7'>
+                    All rights reserved to Wafra @ {new Date().getFullYear()}
+                </div>
+            </Container>
         </footer>
-    )
+    );
 }
 
-export default Footer
+export default Footer;
