@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WafraDarkLogo from '@/components/assets/wafra-dark-logo.png';
+import WafraDarkLogo from '@/components/assets/wafra-logo-light-mode.png';
 import { Container } from '@/components/common/container';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ function Footer() {
     return (
         <footer>
             <Container>
-                <div className="flex items-center justify-between border-y py-7 border-white/50">
+                <div className="flex items-center justify-between border-y py-7 border-primary-dark">
                     <Link href="/">
                         <Image
                             src={WafraDarkLogo}
@@ -27,7 +27,7 @@ function Footer() {
                         social medai icons
                     </div>
                 </div>
-                <div className='text-center text-sm text-white/40 py-7'>
+                <div className='text-center text-sm py-7'>
                     All rights reserved to Wafra @ {new Date().getFullYear()}
                 </div>
             </Container>

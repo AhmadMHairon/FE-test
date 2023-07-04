@@ -28,29 +28,28 @@ export function HomeTopSection() {
                 </g>
             </svg>
             <Container className="items-center grid md:grid-cols-2 gap-4 z-10">
-                <div className="space-y-6 md:space-y-12 order-2 text-center flex flex-col justify-center items-center">
+                <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.25, type:'spring', bounce: 0.25, damping: 8, stiffness: 100 }}
-                        className="font-bold sm:text-5xl text-3xl">
-                        ابني ثروتك المالية مع وفرة
+                        transition={{ delay: 0.25, type: 'spring', bounce: 0.25, damping: 8, stiffness: 100 }}
+                        className="font-bold sm:text-5xl text-3xl text-primary-dark">
+                        ابنِ ثروتك المالية مع وفرة
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, type:'spring', bounce: 0.25, damping: 8 }}
-                        className="text-white/40 max-w-[670px] text-xl sm:text-2xl">
+                        transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
+                        className="max-w-[670px] text-xl sm:text-2xl">
                         نوفر بين يديك أبسط الخطوات وأحدث التقنيات لتأمين مستقبلك المالي لإدارة ثروتك
                         وتنميتها بالاستثمار في السوق المحلي والعالمي، ابدأ إدارة ثروتك اليوم مع
                         مستشارين وخبراء لتحقيق أهدافك المالية.
                     </motion.p>
-
                     <Button
                         as={motion.button}
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.65, type:'spring', bounce: 0.25, damping: 8 }}
+                        transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}
                         className="text-2xl w-[220px] py-3">
                         سجل اهتمامك
                     </Button>

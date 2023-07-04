@@ -11,6 +11,7 @@ export const buttonVariants = cva('rounded-lg', {
                 'focus:ring-primary-light focus:outline-none focus:bg-primary-light focus:ring-1 focus:ring-offset-1',
                 'disabled:bg-primary-lighter disabled:text-primary-main disabled:cursor-not-allowed',
             ],
+            secondary: ['bg-white', 'text-primary-main'],
         },
         size: {
             small: ['text-sm', 'py-1', 'px-2'],

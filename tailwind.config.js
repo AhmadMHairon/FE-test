@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     content: [
@@ -13,9 +14,17 @@ module.exports = {
                     lighter: '#c8facd',
                     light: '#5ce585',
                     main: '#55D48E',
+                    dark: '#3D9866'
                 },
             },
         },
     },
-    plugins: [],
+    plugins: [
+        plugin(({ addBase, theme }) => {
+            console.log(theme)
+            addBase({
+                'html': { color: "#4CBE7F" },
+            });
+        })
+    ],
 };

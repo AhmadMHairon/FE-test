@@ -18,7 +18,7 @@ const arabicFont = IBMArabic({
 function MainLayout({ children }: MainLayoutProps) {
     return (
         <div
-            className={cls('w-full flex flex-col justify-between text-white', arabicFont.className)}
+            className={cls('w-full flex flex-col justify-between', arabicFont.className)}
             dir="rtl">
             <Header />
             {children}
