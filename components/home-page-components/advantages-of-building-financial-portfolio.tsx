@@ -16,7 +16,7 @@ function AdvantagesOfBuildingFinancialPortfolio() {
     ]
 
     return (
-        <div className='bg-[#2E2E2E] text-center rounded-lg mx-auto p-10 lg:p-0'>
+        <div className='bg-[#2E2E2E] text-center mx-auto p-10 lg:p-0'>
             <div className="flex flex-col justify-center lg:h-[1031px] space-y-16">
                 <h2>مزايا بناء المحفظة المالية</h2>
                 <h5 className="lg:w-[550px] mx-auto text-gray-400">درسنا السوق الاستثماري و التحديات التي يواجهها أصحاب رؤوس الاموال العالية ، و صممنا الخدمات التي تحتاجها لإدارة أموالك بتكلفة منخفضة و آلية سهلة و استراتيجيات مرنة</h5>
