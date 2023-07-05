@@ -8,9 +8,11 @@ import { HeaderMenu } from './header-menu';
 import { useEffect, useState } from 'react';
 import { cls } from '@/utils/cls';
 import { NextLink } from '@/components/common/link';
+import { useRouter } from 'next/router';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,7 +28,7 @@ function Header() {
     }, []);
 
     return (
-        <header className={cls("fixed top-0 inset-x-0 z-50 py-8 px-2.5", isScrolled && 'bg-white')}>
+        <header className={cls('fixed top-0 inset-x-0 z-50 py-8 px-2.5', isScrolled && 'bg-white')}>
             <nav>
                 <Container className="flex items-center justify-between">
                     <Link href="/">
@@ -42,16 +44,22 @@ function Header() {
                     <ul className="hidden md:flex gap-8 justify-between">
                         {header_links.map(link => {
                             const isHashLink = link.href.startsWith('#');
-                            const Comp = isHashLink ? 'a' : Link;
+                            const href = !isHashLink
+                                ? link.href
+                                : link.page === router.pathname
+                                ? link.href
+                                : `${link.page}${link.href}`;
 
                             return (
-                                <li className="font-semibold" key={link.href}>
-                                    <Comp href={link.href}>{link.name}</Comp>
+                                <li className="font-semibold" key={href}>
+                                    <Link href={href}>{link.name}</Link>
                                 </li>
                             );
                         })}
                     </ul>
-                    <Button as={NextLink} href="/signup" className="hidden sm:block">سجّل اهتمامك</Button>
+                    <Button as={NextLink} href="/signup" className="hidden sm:block">
+                        سجّل اهتمامك
+                    </Button>
 
                     <HeaderMenu />
                 </Container>

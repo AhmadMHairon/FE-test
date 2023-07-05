@@ -2,12 +2,14 @@ import Link from 'next/link';
 import { header_links } from './_links';
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const MENU_OPEN_DURATION = 0.3;
 
 export const HeaderMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const isReducedMotion = useReducedMotion();
+    const router = useRouter();
 
     const setOpen = () => setIsOpen(true);
     const setClose = () => setIsOpen(false);
@@ -138,11 +140,15 @@ export const HeaderMenu = () => {
                             <ul className="flex-grow">
                                 {header_links.map((link, idx) => {
                                     const isHashLink = link.href.startsWith('#');
-                                    const Comp = isHashLink ? 'a' : Link;
+                                    const href = !isHashLink
+                                        ? link.href
+                                        : link.page === router.pathname
+                                        ? link.href
+                                        : `${link.page}${link.href}`;
                                     return (
                                         <motion.li
                                             className="font-semibold"
-                                            key={link.href}
+                                            key={href}
                                             initial={isReducedMotion ? {} : { opacity: 0, y: 27 }}
                                             animate={isReducedMotion ? {} : { opacity: 1, y: 0 }}
                                             exit={
@@ -162,12 +168,12 @@ export const HeaderMenu = () => {
                                                 ease: 'easeInOut',
                                                 delay: idx * 0.1,
                                             }}>
-                                            <Comp
+                                            <Link
                                                 className="p-4 block w-full border-b hover:border-b-primary-light hover:bg-primary-lighter/50 focus:bg-primary-lighter/50 focus:border-b-primary-light focus:outline-none"
                                                 onClick={setClose}
-                                                href={link.href}>
+                                                href={href}>
                                                 {link.name}
-                                            </Comp>
+                                            </Link>
                                         </motion.li>
                                     );
                                 })}
