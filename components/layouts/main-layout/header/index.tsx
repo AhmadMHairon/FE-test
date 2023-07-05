@@ -25,7 +25,7 @@ function Header() {
     }, []);
 
     return (
-        <header className={cls("fixed transition-colors duration-300 top-0 inset-x-0 z-50 py-8 px-2.5", isScrolled && 'bg-white')}>
+        <header className={cls("fixed top-0 inset-x-0 z-50 py-8 px-2.5", isScrolled && 'bg-white')}>
             <nav>
                 <Container className="flex items-center justify-between">
                     <Link href="/">
