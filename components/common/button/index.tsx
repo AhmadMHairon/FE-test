@@ -18,7 +18,7 @@ export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropW
 
 type ButtonComponent = <C extends React.ElementType = 'button'>(
     props: ButtonProps<C>
-) => React.ReactElement | null;
+) => React.ReactNode | null;
 
 export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
