@@ -32,7 +32,8 @@ export function BuildYourWealth() {
     usePrettyCards(cardsContainer);
 
     return (
-        <Container className="text-center space-y-24 mt-12 mb-32">
+       <section id="how-to-build-your-wealth">
+         <Container className="text-center space-y-24 mt-12 mb-32">
             <motion.h2
                 initial={{ opacity: 0, y: 65 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -49,5 +50,6 @@ export function BuildYourWealth() {
                 ))}
             </div>
         </Container>
+       </section>
     );
 }

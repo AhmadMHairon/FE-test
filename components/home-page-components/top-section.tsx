@@ -7,7 +7,7 @@ import { PhoneAnimation } from './phone-animation';
 
 export function HomeTopSection() {
     return (
-        <section className="relative pt-32 pb-24 flex items-center min-h-screen mx-auto overflow-hidden px-2.5">
+        <section id="about" className="relative pt-32 pb-24 flex items-center min-h-screen mx-auto overflow-hidden px-2.5">
             <svg
                 width="584"
                 height="601"

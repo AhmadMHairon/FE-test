@@ -32,7 +32,7 @@ export function FeaturesSection() {
     usePrettyCards(cardsContainer);
 
     return (
-        <div className="bg-[#F9F8FE] text-center mx-auto py-16 mb-48">
+        <section id="why-wafra" className="bg-[#F9F8FE] text-center mx-auto py-16 mb-48">
             <Container className="flex flex-col justify-center space-y-16">
                 <motion.h2
                     initial={{ opacity: 0, y: 65 }}
@@ -62,6 +62,6 @@ export function FeaturesSection() {
                     </Button>
                 </div>
             </Container>
-        </div>
+        </section>
     );
 }
