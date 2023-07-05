@@ -1,18 +1,16 @@
-import Image from 'next/image';
-import WafraDarkLogo from '@/components/assets/wafra-logo-light-mode.png';
-import { Container } from '@/components/common/container';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Container } from '@/components/common/container';
+import TwiiterIcon from "@/components/assets/twitter-icon.svg"
+import LinkedinIcon from "@/components/assets/linkedin-icon.svg"
+import InstagramrIcon from "@/components/assets/instagram-icon.svg"
+import WafraDarkLogo from '@/components/assets/wafra-logo-light-mode.png';
 
 function Footer() {
-    const wafraItems = ['الرئيسية', 'عن وفرة', 'كيف ابدأ استثماري'];
-
-    const importantLinks = ['المدونة', 'سياسة الخصوصية'];
-    // <Image src={WafraDarkLogo} alt="wafra-logo" className="h-10 w-44" />
-
     return (
         <footer>
             <Container>
-                <div className="flex items-center justify-between border-y py-7 border-primary-dark">
+                <div className="flex items-center justify-between border-t-2 py-7 border-primary-main">
                     <Link href="/">
                         <Image
                             src={WafraDarkLogo}
@@ -22,13 +20,11 @@ function Footer() {
                             className="h-10 w-44 object-contain"
                         />
                     </Link>
-
-                    <div className='text-sm'>
-                        social medai icons
+                    <div className='flex items-center gap-5'>
+                        <Image src={LinkedinIcon} alt='' className='h-8 w-8' />
+                        <Image src={InstagramrIcon} alt='' className='h-8 w-8' />
+                        <Image src={TwiiterIcon} alt='' className='h-8 w-8' />
                     </div>
-                </div>
-                <div className='text-center text-sm py-7'>
-                    All rights reserved to Wafra @ {new Date().getFullYear()}
                 </div>
             </Container>
         </footer>

@@ -51,7 +51,7 @@ function Header() {
                 </Container>
             </nav>
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}>
-                <div className='pt-5 divide-y-2 divide-gray-200 space-y-5'>
+                <div className='py-5 border-b border-primary-main'>
                     <Link href="/">
                         <Image
                             priority
@@ -62,21 +62,19 @@ function Header() {
                             className="h-9 w-40 object-contain px-2.5"
                         />
                     </Link>
-                    <div className='pt-5 px-5 space-y-5'>
-                        <ul className="space-y-5">
-                            {navLinks.map(navLink => (
-                                <li className='font-semibold' key={navLink}>{navLink}</li>
-                            ))}
-                        </ul>
-                        <div>
-                            <Link href="/" className='font-semibold'>
-                                سجّل اهتمامك
-                            </Link>
-                        </div>
-                    </div>
-
                 </div>
-
+                <div className='px-5 space-y-5'>
+                    <ul className="space-y-5">
+                        {navLinks.map(navLink => (
+                            <li className='font-semibold' key={navLink}>{navLink}</li>
+                        ))}
+                    </ul>
+                    <div>
+                        <Link href="/" className='font-semibold'>
+                            سجّل اهتمامك
+                        </Link>
+                    </div>
+                </div>
             </Sidebar>
         </header>
     );

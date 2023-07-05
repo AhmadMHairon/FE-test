@@ -38,7 +38,7 @@ export function BuildYourWealth() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, ease: 'easeInOut' }}
                 ref={title}
-                className="font-bold sm:text-5xl text-3xl">
+                className="font-bold sm:text-5xl text-3xl text-[#2E724C]">
                 كيف نساعدك على بناء ثروتك؟
             </motion.h2>
             <div
