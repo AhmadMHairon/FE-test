@@ -9,7 +9,7 @@ import { useState } from "react"
 const navLinks = ['عن وفرة', 'كيف تبني ثروتك', 'لماذا وفرة'];
 
 function Header() {
-    const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
         <header className="fixed top-0 inset-x-0 z-50 py-8 px-2.5 bg-white">
@@ -33,7 +33,7 @@ function Header() {
                     <Button className='hidden sm:block'>
                         سجّل اهتمامك
                     </Button>
-                    <button aria-label="menu" className="block md:hidden" onClick={() => setSidebarOpen(true)}>
+                    <button aria-label="menu" className="block md:hidden" onClick={() => setIsOpen(true)}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -50,7 +50,7 @@ function Header() {
                     </button>
                 </Container>
             </nav>
-            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}>
+            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}>
                 <div className='py-5 border-b border-primary-main'>
                     <Link href="/">
                         <Image
@@ -63,7 +63,7 @@ function Header() {
                         />
                     </Link>
                 </div>
-                <div className='px-5 space-y-5'>
+                <div className='px-5 space-y-5 pt-5'>
                     <ul className="space-y-5">
                         {navLinks.map(navLink => (
                             <li className='font-semibold' key={navLink}>{navLink}</li>
