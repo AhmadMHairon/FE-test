@@ -3,6 +3,7 @@ import { cls } from '@/utils/cls';
 import { Button } from '../common/button';
 import { Container } from '../common/container';
 import { useInView, motion } from 'framer-motion';
+
 const layers = [
     {
         imageClassName: 'h-[900px] w-[568px]',
@@ -33,8 +34,6 @@ export function LastSection() {
                 <div
                     key={index}
                     className={cls('absolute', divClassName)}>
-                    {/* <Image src={index === 0 ? HalfVector : Vector} alt='' className={imageClassName} /> */}
-
                     <svg
                         width="454"
                         height="406"
