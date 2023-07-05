@@ -1,4 +1,3 @@
-import Mobile from '@/components/assets/mobile.png';
 import leftPhone from '@/components/assets/left-phone.png';
 import rightPhone from '@/components/assets/right-phone.png';
 import Image from 'next/image';
@@ -28,11 +27,17 @@ export function HomeTopSection() {
                 </g>
             </svg>
             <Container className="items-center grid md:grid-cols-2 gap-4 z-10">
-                <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center">
+                <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center md:ltr:text-left md:rtl:text-right text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.25, type: 'spring', bounce: 0.25, damping: 8, stiffness: 100 }}
+                        transition={{
+                            delay: 0.25,
+                            type: 'spring',
+                            bounce: 0.25,
+                            damping: 8,
+                            stiffness: 100,
+                        }}
                         className="font-bold sm:text-5xl text-3xl text-primary-dark">
                         ابنِ ثروتك المالية مع وفرة
                     </motion.h1>
@@ -45,14 +50,16 @@ export function HomeTopSection() {
                         وتنميتها بالاستثمار في السوق المحلي والعالمي، ابدأ إدارة ثروتك اليوم مع
                         مستشارين وخبراء لتحقيق أهدافك المالية.
                     </motion.p>
-                    <Button
-                        as={motion.button}
-                        initial={{ opacity: 0, y: 65 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}
-                        className="text-2xl w-[220px] py-3">
-                        سجل اهتمامك
-                    </Button>
+                    <div className="md:justify-start justify-center flex">
+                        <Button
+                            as={motion.button}
+                            initial={{ opacity: 0, y: 65 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}
+                            className="text-2xl w-[220px] py-3">
+                            سجل اهتمامك
+                        </Button>
+                    </div>
                 </div>
                 <div className="flex justify-center order-1 md:order-3">
                     <div className="flex md:scale-100 scale-75 transform justify-center relative">
@@ -66,6 +73,7 @@ export function HomeTopSection() {
                                 src={rightPhone}
                                 width={280}
                                 height={571}
+                                priority
                                 className="object-contain max-w-full"
                             />
                         </motion.div>
@@ -79,6 +87,7 @@ export function HomeTopSection() {
                                 src={leftPhone}
                                 width={350}
                                 height={571}
+                                priority
                                 className="object-contain"
                             />
                         </motion.div>

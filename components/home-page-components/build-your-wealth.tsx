@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Container } from '../common/container';
 import { useInView, motion } from 'framer-motion';
 import { usePrettyCards } from '@/hooks/use-pretty-card';
-import { GrayCard } from './components/gray-card';
+import { GrayCard } from './gray-card';
 
 const items = [
     {

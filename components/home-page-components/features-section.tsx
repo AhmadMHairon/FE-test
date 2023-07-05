@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { Container } from '../common/container';
 import { usePrettyCards } from '@/hooks/use-pretty-card';
 import { Button } from '../common/button';
-import { GrayCard } from './components/gray-card';
+import { GrayCard } from './gray-card';
 
 const items = [
     {

@@ -17,6 +17,7 @@ function Footer() {
                             alt="wafra-logo"
                             height={40}
                             width={160}
+                            priority
                             className="h-10 w-44 object-contain"
                         />
                     </Link>

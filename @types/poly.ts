@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 export type PolymorphicRef<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref'];
 
 type AsProp<C extends React.ElementType> = {

@@ -42,7 +42,7 @@
     .card::before {
         background: radial-gradient(
             500px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.04),
+            rgba(200, 250, 205, 0.3),
             transparent 40%
         );
         z-index: 3;
@@ -51,7 +51,7 @@
     .card::after {
         background: radial-gradient(
             400px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.25),
+            rgba(200, 250, 205, 0.25),
             transparent 40%
         );
         z-index: 1;
