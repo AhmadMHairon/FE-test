@@ -7,6 +7,7 @@ import { header_links } from './_links';
 import { HeaderMenu } from './header-menu';
 import { useEffect, useState } from 'react';
 import { cls } from '@/utils/cls';
+import { NextLink } from '@/components/common/link';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +51,7 @@ function Header() {
                             );
                         })}
                     </ul>
-                    <Button className="hidden sm:block">سجّل اهتمامك</Button>
+                    <Button as={NextLink} href="/signup" className="hidden sm:block">سجّل اهتمامك</Button>
 
                     <HeaderMenu />
                 </Container>

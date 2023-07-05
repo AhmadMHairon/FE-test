@@ -8,7 +8,7 @@ import WafraDarkLogo from '@/assets/wafra-logo-light-mode.png';
 
 function Footer() {
     return (
-        <footer>
+        <footer className='bg-white'>
             <Container>
                 <div className="flex items-center justify-between border-t-2 py-7 border-primary-main">
                     <Link href="/">
