@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WafraLogo from '@/components/assets/wafra-logo-light-mode.png';
+import WafraLogo from '@/assets/wafra-logo-light-mode.png';
 import { Container } from '@/components/common/container';
 import Link from 'next/link';
 import { Button } from '@/components/common/button';

@@ -1,13 +1,13 @@
-import leftPhone from '@/components/assets/left-phone.png';
-import rightPhone from '@/components/assets/right-phone.png';
+import leftPhone from '@/assets/left-phone.png';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/common/container';
 import { Button } from '../common/button';
+import { PhoneAnimation } from './phone-animation';
 
 export function HomeTopSection() {
     return (
-        <section className="relative py-24 flex items-center min-h-screen mx-auto overflow-hidden px-2.5">
+        <section className="relative pt-32 pb-24 flex items-center min-h-screen mx-auto overflow-hidden px-2.5">
             <svg
                 width="584"
                 height="601"
@@ -68,14 +68,7 @@ export function HomeTopSection() {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.65 }}
                             className="z-10 origin-bottom-right">
-                            <Image
-                                alt=""
-                                src={rightPhone}
-                                width={280}
-                                height={571}
-                                priority
-                                className="object-contain max-w-full"
-                            />
+                            <PhoneAnimation />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, rotate: 10, x: 20 }}
@@ -88,7 +81,7 @@ export function HomeTopSection() {
                                 width={350}
                                 height={571}
                                 priority
-                                className="object-contain"
+                                className="object-contain lg:w-[350px] w-[250px]"
                             />
                         </motion.div>
                     </div>

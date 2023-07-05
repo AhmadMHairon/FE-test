@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/common/container';
-import TwiiterIcon from "@/components/assets/twitter-icon.svg"
-import LinkedinIcon from "@/components/assets/linkedin-icon.svg"
-import InstagramrIcon from "@/components/assets/instagram-icon.svg"
-import WafraDarkLogo from '@/components/assets/wafra-logo-light-mode.png';
+import TwiiterIcon from "@/assets/twitter-icon.svg"
+import LinkedinIcon from "@/assets/linkedin-icon.svg"
+import InstagramrIcon from "@/assets/instagram-icon.svg"
+import WafraDarkLogo from '@/assets/wafra-logo-light-mode.png';
 
 function Footer() {
     return (
