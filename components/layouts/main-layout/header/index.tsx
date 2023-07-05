@@ -5,10 +5,27 @@ import Link from 'next/link';
 import { Button } from '@/components/common/button';
 import { header_links } from './_links';
 import { HeaderMenu } from './header-menu';
+import { useEffect, useState } from 'react';
+import { cls } from '@/utils/cls';
 
 function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 56) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className="fixed top-0 inset-x-0 z-50 py-8 px-2.5 bg-white">
+        <header className={cls("fixed transition-colors duration-300 top-0 inset-x-0 z-50 py-8 px-2.5", isScrolled && 'bg-white')}>
             <nav>
                 <Container className="flex items-center justify-between">
                     <Link href="/">

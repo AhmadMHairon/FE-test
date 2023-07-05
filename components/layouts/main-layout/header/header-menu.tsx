@@ -3,7 +3,7 @@ import { header_links } from './_links';
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
-const MENU_OPEN_DURATION = 0.2;
+const MENU_OPEN_DURATION = 0.3;
 
 export const HeaderMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

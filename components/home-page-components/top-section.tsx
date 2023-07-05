@@ -7,7 +7,8 @@ import { PhoneAnimation } from './phone-animation';
 
 export function HomeTopSection() {
     return (
-        <section id="about" className="relative pt-32 pb-24 flex items-center min-h-screen mx-auto overflow-hidden px-2.5">
+        <section id="about" className=" relative pt-32 pb-24 flex items-center min-h-screen mx-auto overflow px-2.5">
+            
             <svg
                 width="584"
                 height="601"
@@ -61,7 +62,9 @@ export function HomeTopSection() {
                         </Button>
                     </div>
                 </div>
-                <div className="flex justify-center order-1 md:order-3">
+                <div className="flex justify-center order-1 md:order-3 relative">
+                <div className='absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[400px] h-[400px]  bg-[rgba(84,190,150,0.90)] backdrop-filter blur-[200px] rounded-full'/>
+
                     <div className="flex md:scale-100 scale-75 transform justify-center relative">
                         <motion.div
                             initial={{ opacity: 0 }}
