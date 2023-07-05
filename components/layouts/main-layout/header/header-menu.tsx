@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { header_links } from './_links';
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { cls } from '@/utils/cls';
 
 const MENU_OPEN_DURATION = 0.2;
 
