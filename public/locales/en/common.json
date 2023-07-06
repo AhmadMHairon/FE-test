@@ -1,3 +1,6 @@
 {
-    "home": "Home"
+    "home": "Home",
+    "validation": {
+        "required": "This field is required"
+    }
 }

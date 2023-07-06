@@ -57,10 +57,9 @@ function Header() {
                             );
                         })}
                     </ul>
-                    <Button as={NextLink} href="/signup" className="hidden sm:block">
+                    <Button as={NextLink} href="/sign-up" className="hidden sm:block">
                         سجّل اهتمامك
                     </Button>
-
                     <HeaderMenu />
                 </Container>
             </nav>
