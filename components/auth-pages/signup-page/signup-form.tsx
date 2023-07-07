@@ -6,7 +6,6 @@ import { Button } from '@/components/common/button';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputController } from '@/components/common/controllers/input-controller';
 import yup from '@/utils/yup';
-import { motion } from 'framer-motion';
 import { Assessment } from '@/@types/assessments';
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -49,7 +48,7 @@ export const SignupForm = ({ onSubmit }: SignupFormProps) => {
         <div className="max-w-full lg:rtl:ml-0 lg:ltr:mr-0 rtl:ml-auto ltr:mr-auto w-full sm:w-[440px] py-8 bg-white rounded-md">
             <div className="px-6 mb-6">
                 <Link
-                    href=""
+                    href="/"
                     className="inline-flex items-center hover:underline focus:underline focus:outline-none">
                     <svg
                         className="inline-block w-4 h-4 ml-1 rtl:rotate-180"
