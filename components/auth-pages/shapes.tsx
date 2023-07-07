@@ -9,10 +9,14 @@ export const AuthShapes = ({ shrink }: AuthShapesProps) => {
         <div>
             {!shrink && (
                 <motion.div exit={{ opacity: 0, y: -70 }}>
-                    <div className="lg:block hidden text-white text-2xl absolute right-48 top-32 z-30">
+                    <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 0.5, delay: 0.5}}
+                    className="lg:block hidden text-white text-2xl absolute right-56 top-32 z-30">
                         <div className="text-5xl mb-12 font-semibold">نمكّن أموالك</div>
                         <div className="-mr-24 text-5xl font-semibold">ندير مستقبلك</div>
-                    </div>
+                    </motion.div>
                 </motion.div>
             )}
             <div className="absolute max-w-[100vw] rtl:right-0 bottom-0">
@@ -89,7 +93,7 @@ export const AuthShapes = ({ shrink }: AuthShapesProps) => {
                     viewBox="0 0 610 343"
                     fill="none"
                     transition={
-                        shrink ? { duration: isReducedMotion ? 0 : 1, ease: 'easeInOut' } : {}
+                        isReducedMotion ? {} : { duration: isReducedMotion ? 0 : 1, ease: 'easeInOut' }
                     }
                     animate={
                         isReducedMotion

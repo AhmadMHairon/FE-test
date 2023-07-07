@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Container } from '@/components/common/container';
 import { Button } from '../common/button';
 import { PhoneAnimation } from './phone-animation';
+import Link from 'next/link';
 
 export function HomeTopSection() {
     return (
@@ -52,16 +53,15 @@ export function HomeTopSection() {
                         وتنميتها بالاستثمار في السوق المحلي والعالمي، ابدأ إدارة ثروتك اليوم مع
                         مستشارين وخبراء لتحقيق أهدافك المالية.
                     </motion.p>
-                    <div className="md:justify-start justify-center flex">
-                        <Button
-                            as={motion.button}
-                            initial={{ opacity: 0, y: 65 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}
-                            className="text-2xl w-[220px] py-3">
+                    <motion.div
+                        className="md:justify-start justify-center flex"
+                        initial={{ opacity: 0, y: 65 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}>
+                        <Button as={Link} href="/sign-up" className="text-2xl text-center w-[220px] py-3">
                             سجل اهتمامك
                         </Button>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="flex justify-center order-1 md:order-3 relative">
                     <div className="absolute z-0 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[400px] h-[400px]  bg-[rgba(84,190,150,0.90)] backdrop-filter blur-[200px] rounded-full" />

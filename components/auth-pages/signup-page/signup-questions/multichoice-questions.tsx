@@ -21,8 +21,8 @@ export const MultichoiceAnswers = ({ id, answers }: MultichoiceAnswersProps) => 
                             htmlFor={`${id}_${answer.id}`}
                             className={cls(
                                 'flex items-center border border-gray-300 justify-center w-[172px] bg-gray-300 h-8 rounded-full',
-                                'peer-focus:border-primary-main peer-aria-checked:bg-primary-main peer-aria-checked:text-white',
-                                'hover:border-primary-main cursor-pointer'
+                                'peer-focus:border-primary-dark peer-aria-checked:bg-primary-dark peer-aria-checked:text-white',
+                                'hover:border-primary-dark cursor-pointer'
                             )}>
                             <span className="font-semibold text-sm">{answer.label}</span>
                         </label>

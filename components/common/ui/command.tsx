@@ -21,6 +21,7 @@ const Command = React.forwardRef<
 ));
 Command.displayName = CommandPrimitive.displayName;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CommandDialogProps extends DialogProps {}
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
@@ -40,7 +41,7 @@ const CommandInput = React.forwardRef<
     React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
     <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
-        <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+        <Search className="rtl:ml-2 ltr:mr-2 h-4 w-4 shrink-0 opacity-50" />
         <CommandPrimitive.Input
             ref={ref}
             className={cn(
