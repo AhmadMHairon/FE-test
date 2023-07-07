@@ -6,14 +6,13 @@ import { SignupQuestions } from './signup-questions';
 import { Assessment } from '@/@types/assessments';
 import { SignupSuccessDialog } from './success-dialog';
 import { motion } from 'framer-motion';
-import { mock_assessments } from './mock-assessment';
 
 type Props = {
     questions: Assessment[];
 };
 
 export const SignupContent = ({ questions }: Props) => {
-    const [questionsList, setQuestionsList] = useState(questions || [mock_assessments]);
+    const [questionsList, setQuestionsList] = useState(questions || []);
     const [submitted, setSubmitted] = useState(false);
 
     return (
