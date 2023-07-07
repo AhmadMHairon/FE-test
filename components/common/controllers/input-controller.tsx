@@ -1,34 +1,29 @@
-import { Controller } from 'react-hook-form';
+import { Control, Controller, FieldValues } from 'react-hook-form';
 import { Input, InputProps } from '../input';
 import { translateRHFErrorMsg } from '@/utils/translate-rhf-error-msg';
 
-type InputControllerProps = {
-    name: any;
-    control: any;
-} & InputProps
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type InputControllerProps<T extends FieldValues = any> = {
+    name: string;
+    control: Control<T>;
+} & InputProps;
 
-export function InputController({ name, control, helperText, error, ...otherInputProps }: InputControllerProps) {
-
+export function InputController({ name, control, error, ...props }: InputControllerProps) {
     return (
         <Controller
             name={name}
             control={control}
-            render={({ field: { onChange, value }, fieldState: { error: stateError } }) => {
-                const inputError = error || Boolean(stateError);
-               
-                const inputHelperText = helperText || translateRHFErrorMsg(stateError);
-               
+            render={({ field: { onChange }, fieldState: { error: stateError } }) => {
+                const inputHelperText = error || translateRHFErrorMsg(stateError);
+
                 return (
                     <Input
                         onChange={e => onChange(e.target.value)}
-                        error={inputError}
-                        value={value === null ? '' : value}
-                        helperText={inputHelperText}
-                        {...otherInputProps}
+                        error={inputHelperText}
+                        {...props}
                     />
-                )
-            }
-            }
+                );
+            }}
         />
     );
 }

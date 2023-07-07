@@ -1,50 +1,37 @@
-import yup from '@/utils/yup';
-import { GetStaticProps } from 'next';
-import { useForm } from 'react-hook-form';
-import { Button } from '@/components/common/button';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { InputController } from '@/components/common/controllers/input-controller';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { http } from '@/utils/http';
+import { SignupContent } from '@/components/auth-pages/signup-page';
+import { GetServerSideProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Fragment } from 'react';
+import { getCookie } from 'cookies-next';
+import { getQuestions } from '@/apis/signup/use-signup.mutation';
+import { Assessment } from '@/@types/assessments';
 
-const scehem = yup.object().shape({
-    name: yup.string().required(),
-    phone_number: yup.string().required(),
-    email: yup.string().required()
-})
+type Props = {
+    // Please modify assessment type to respect the api response
+    questions: Assessment[];
+};
 
-export default function SignupPage() {
-    const { control, handleSubmit } = useForm({
-        resolver: yupResolver(scehem)
-    })
+export default function SignupPage({ questions }: Props) {
+    return <SignupContent questions={questions} />;
+}
+export const getServerSideProps: GetServerSideProps = async ({ locale, res, req }) => {
+    const token = getCookie('token', { res, req });
 
-    const handleSubmitForm = async (values: object) => {
-        try {
-           await http.post("/auth/register", values)
-        } catch (err) {
-            // err
-        }
+    if (token) {
+        const questions = await getQuestions(token.toString());
+        return {
+            props: {
+                questions,
+                ...(await serverSideTranslations(locale as string, ['common'])),
+            },
+        };
     }
 
-    return (
-        <div className='space-y-8'>
-            <h6 className='text-black font-semibold text-2xl'>سجّل اهتمامك</h6>
-            <form onSubmit={handleSubmit(handleSubmitForm)} className='space-y-5'>
-                <InputController control={control} name="name" placeholder="الاسم كامل" />
-                <InputController control={control} name="phone_number" placeholder="رقم الجوال" />
-                <InputController control={control} name="email" placeholder="البريد الالكتروني" />
-                <Button type='submit' className='w-full'>
-                    سجّل اهتمامك
-                </Button>
-            </form>
-        </div>
-    );
-}
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
         props: {
             ...(await serverSideTranslations(locale as string, ['common'])),
         },
     };
 };
+
+SignupPage.Layout = Fragment;

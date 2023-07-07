@@ -51,15 +51,15 @@ export function FeaturesSection() {
                     صممنا الخدمات التي تحتاجها لإدارة أموالك بتكلفة منخفضة و آلية سهلة و استراتيجيات
                     مرنة
                 </motion.p>
-                <div ref={cardsContainer} className="cards lg:flex justify-center grid justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-2.5">
+                <div
+                    ref={cardsContainer}
+                    className="cards lg:flex justify-center grid justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-2.5">
                     {items.map((details, idx) => (
                         <GrayCard {...details} key={idx} />
                     ))}
                 </div>
                 <div>
-                    <Button size="large">
-                        ابن محفظتك الآن
-                    </Button>
+                    <Button size="large">ابن محفظتك الآن</Button>
                 </div>
             </Container>
         </section>

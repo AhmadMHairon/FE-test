@@ -2,16 +2,16 @@ export const header_links = [
     {
         name: 'عن وفرة',
         href: '#about',
-        page: '/'
+        page: '/',
     },
     {
         name: 'كيف تبني ثروتك',
         href: '#how-to-build-your-wealth',
-        page: '/'
+        page: '/',
     },
     {
         name: 'لماذا وفرة',
         href: '#why-wafra',
-        page: '/'
+        page: '/',
     },
 ];

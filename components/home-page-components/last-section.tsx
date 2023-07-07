@@ -31,9 +31,7 @@ export function LastSection() {
     return (
         <Container className="relative flex flex-col justify-center items-center h-[431px] mx-auto mb-20 space-y-8 bg-[#4CBE7F] text-center rounded-lg text-gray-100 overflow-hidden">
             {layers.map(({ divClassName, imageClassName }, index) => (
-                <div
-                    key={index}
-                    className={cls('absolute', divClassName)}>
+                <div key={index} className={cls('absolute', divClassName)}>
                     <svg
                         width="454"
                         height="406"

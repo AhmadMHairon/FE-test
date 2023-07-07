@@ -11,7 +11,6 @@ type LinkType = React.ForwardRefExoticComponent<
 export const NextLink = (({ children, ...props }) => {
     const { locale } = useRouter();
 
-
     return (
         <Link {...props} locale={locale}>
             {children}

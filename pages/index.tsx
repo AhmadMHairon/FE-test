@@ -3,10 +3,9 @@ import { BuildYourWealth } from '@/components/home-page-components/build-your-we
 import { FeaturesSection } from '@/components/home-page-components/features-section';
 import { HomeTopSection } from '@/components/home-page-components/top-section';
 import { GetStaticProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function HomePage() {
-    
     return (
         <div>
             <HomeTopSection />

@@ -32,24 +32,24 @@ export function BuildYourWealth() {
     usePrettyCards(cardsContainer);
 
     return (
-       <section id="how-to-build-your-wealth">
-         <Container className="text-center space-y-24 mt-12 mb-32">
-            <motion.h2
-                initial={{ opacity: 0, y: 65 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, ease: 'easeInOut' }}
-                ref={title}
-                className="font-bold sm:text-5xl text-3xl text-[#2E724C]">
-                كيف نساعدك على بناء ثروتك؟
-            </motion.h2>
-            <div
-                ref={cardsContainer}
-                className="cards grid justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10  px-2.5">
-                {items.map((details, idx) => (
-                    <GrayCard key={idx} {...details} />
-                ))}
-            </div>
-        </Container>
-       </section>
+        <section id="how-to-build-your-wealth">
+            <Container className="text-center space-y-24 mt-12 mb-32">
+                <motion.h2
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.7, ease: 'easeInOut' }}
+                    ref={title}
+                    className="font-bold sm:text-5xl text-3xl text-[#2E724C]">
+                    كيف نساعدك على بناء ثروتك؟
+                </motion.h2>
+                <div
+                    ref={cardsContainer}
+                    className="cards grid justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10  px-2.5">
+                    {items.map((details, idx) => (
+                        <GrayCard key={idx} {...details} />
+                    ))}
+                </div>
+            </Container>
+        </section>
     );
 }

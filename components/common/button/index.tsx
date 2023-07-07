@@ -3,7 +3,7 @@ import { PolymorphicComponentPropWithRef, PolymorphicRef } from '@/@types/poly';
 import { cls } from '@/utils/cls';
 import { forwardRef } from 'react';
 import { ButtonVariantsType, buttonVariants } from './variance';
-
+import { ButtonLoading } from './loading';
 
 export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
     C,
@@ -18,7 +18,7 @@ export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropW
 
 type ButtonComponent = <C extends React.ElementType = 'button'>(
     props: ButtonProps<C>
-) => JSX.Element | null;
+) => any | null;
 
 export const Button: ButtonComponent = forwardRef(
     <C extends React.ElementType = 'button'>(
@@ -26,7 +26,7 @@ export const Button: ButtonComponent = forwardRef(
             children,
             loadingPosition = 'end',
             loading,
-            loadingIndicator = '...',
+            loadingIndicator = <ButtonLoading />,
             className,
             disabled,
             color,
@@ -42,7 +42,7 @@ export const Button: ButtonComponent = forwardRef(
             <Component
                 className={cls(
                     buttonVariants({ color, size }),
-                    loading && 'inline-flex items-center',
+                    loading && 'inline-flex justify-center items-center',
                     className
                 )}
                 ref={ref}

@@ -4,11 +4,11 @@ export const buttonVariants = cva('rounded-lg', {
     variants: {
         color: {
             primary: [
-                'bg-primary-main',
+                'bg-primary-dark',
                 'text-white',
                 'border-transparent',
-                'hover:[&:not(:disabled)]:bg-primary-light hover:transition-all hover:duration-200',
-                'focus:ring-primary-light focus:outline-none focus:bg-primary-light focus:ring-1 focus:ring-offset-1',
+                'hover:[&:not(:disabled)]:bg-primary-main hover:transition-all hover:duration-200',
+                'focus:ring-primary-main focus:outline-none focus:bg-primary-main focus:ring-1 focus:ring-offset-1',
                 'disabled:bg-primary-lighter disabled:text-primary-main disabled:cursor-not-allowed',
             ],
             secondary: [

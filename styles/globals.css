@@ -14,7 +14,6 @@
 }
 
 @layer utilities {
-   
     .cards:hover > .card::after {
         opacity: 1;
     }

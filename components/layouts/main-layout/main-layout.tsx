@@ -1,10 +1,11 @@
-import { cls } from '@/utils/cls';
 import Footer from './footer';
 import Header from './header';
 import { IBM_Plex_Sans_Arabic as IBMArabic } from 'next/font/google';
+import { Fragment } from 'react';
 
 type MainLayoutProps = {
     children: React.ReactNode;
+    custom?: React.FC;
 };
 
 const arabicFont = IBMArabic({
@@ -15,15 +16,23 @@ const arabicFont = IBMArabic({
     preload: true,
 });
 
-function MainLayout({ children }: MainLayoutProps) {
-    return (
-        <div
-            className={cls('w-full flex-1 flex flex-col justify-between', arabicFont.className)}
-            dir="rtl">
+function MainLayout({ children, custom }: MainLayoutProps) {
+    const CustomLayout = custom || Fragment;
 
-            <Header />
-            <main>{children}</main>
-            <Footer />
+    return (
+        <div className="w-full flex-1 flex flex-col justify-between" dir="rtl">
+            <div>
+                <style jsx global>{`
+                    html {
+                        font-family: ${arabicFont.style.fontFamily};
+                    }
+                `}</style>
+            </div>
+            {!custom && <Header />}
+            <CustomLayout>
+                <main>{children}</main>
+            </CustomLayout>
+            {!custom && <Footer />}
         </div>
     );
 }
