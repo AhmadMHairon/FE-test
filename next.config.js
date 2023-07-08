@@ -1,6 +1,16 @@
+const { i18n } = require('./next-i18next.config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+    // reactStrictMode: true,
+    i18n,
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.fallback.fs = false;
+        }
 
-module.exports = nextConfig
+        return config;
+    },
+};
+
+module.exports = nextConfig;
