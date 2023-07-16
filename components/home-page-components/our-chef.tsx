@@ -9,7 +9,7 @@ const OurChef = () => {
 
     const router = useRouter();
     useEffect(() => {
-        if (router.asPath === '/#Chef' && title.current) {
+        if (router.asPath === '/#chef' && title.current) {
             title.current?.scrollIntoView({ behavior: 'smooth' });
         }
     }, [router.asPath]);

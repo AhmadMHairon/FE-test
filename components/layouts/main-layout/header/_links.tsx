@@ -16,7 +16,7 @@ export const header_links = [
     },
     {
         name: 'Know the Chef',
-        href: '#Chef',
+        href: '#chef',
         page: '/',
     },
     {
