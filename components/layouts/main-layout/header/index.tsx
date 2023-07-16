@@ -59,7 +59,7 @@ function Header() {
 
                             return (
                                 <li
-                                    className="font-semibold transition-all text-white hover:text-secondary-main"
+                                    className="font-semibold text-primary-light/50  transition-all text-nav hover:text-secondary-main"
                                     key={href}>
                                     <Link href={href}>{link.name}</Link>
                                 </li>
