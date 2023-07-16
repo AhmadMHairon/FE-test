@@ -33,9 +33,14 @@ function Header() {
     return (
         <header
             className={cls(
-                `fixed top-0 inset-x-0 z-50 py-8 px-2.5 ${inter.className} transition-all`,
-                isScrolled && 'backdrop-blur-sm'
-            )}>
+                `fixed top-0 inset-x-0 z-50 py-8 px-2.5 ${inter.className} transition-all`
+            )}
+            style={{
+                background: isScrolled ? 'rgba(0, 0, 0, 0.23)' : '',
+                boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : '',
+                backdropFilter: isScrolled ? 'blur(6.1px)' : '',
+                WebkitBackdropFilter: isScrolled ? 'blur(6.1px)' : '',
+            }}>
             <nav>
                 <Container className="flex items-center justify-between">
                     <Link href="/">
