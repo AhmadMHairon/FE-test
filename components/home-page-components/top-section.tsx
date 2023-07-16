@@ -3,13 +3,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-section-image.png';
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 export function HomeTopSection() {
+    const title = useRef(null);
+    const router = useRouter();
+    useEffect(() => {
+        if (router.asPath === '/#home' && title.current) {
+            title.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [router.asPath]);
+
     return (
         <section id="about" className=" min-h-screen flex flex-col overflow-hidden ">
             <div className="items-center grid md:grid-cols-2 gap-4 z-10 flex-1 ">
                 <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center pt-32 pb-24 px-20 z-10 ">
                     <motion.h1
+                        ref={title}
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{

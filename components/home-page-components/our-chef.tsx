@@ -1,10 +1,18 @@
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import chefImage from '@/assets/chef-image.svg';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 const OurChef = () => {
     const title = useRef(null);
+    const router = useRouter();
+    useEffect(() => {
+        if (router.asPath === '/#Chef' && title.current) {
+            title.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [router.asPath]);
+
     const inView = useInView(title, { amount: 'some', once: true });
 
     return (
