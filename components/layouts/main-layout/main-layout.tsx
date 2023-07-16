@@ -11,7 +11,7 @@ function MainLayout({ children, custom }: MainLayoutProps) {
     const CustomLayout = custom || Fragment;
 
     return (
-        <div className=" w-full flex-1 flex flex-col justify-between ">
+        <div className=" w-full flex-1 flex flex-col justify-between bg-primary-main ">
             {!custom && <Header />}
             <CustomLayout>
                 <main className="">{children}</main>

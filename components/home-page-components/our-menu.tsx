@@ -71,7 +71,7 @@ const OurMenu = () => {
                     </div>
                     <div
                         className="sm:grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 hidden"
-                        style={{ gridTemplateColumns: ' repeat(auto-fill, minmax(400px, 1fr))' }}>
+                        style={{ gridTemplateColumns: ' repeat(auto-fill, minmax(320px, 1fr))' }}>
                         {items
                             .filter(item => item.type === activeSection)
                             .filter((item, index) => index < 9)
