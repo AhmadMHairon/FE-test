@@ -6,7 +6,7 @@ import { items, menuSections } from '@/constants/food';
 import { useRouter } from 'next/router';
 
 const OurMenu = () => {
-    const title = useRef(null);
+    const title = useRef<HTMLHeadingElement>(null);
     const inView = useInView(title, { amount: 'some', once: true });
     const [activeSection, setActiveSection] = useState('Hot Starters');
     const router = useRouter();

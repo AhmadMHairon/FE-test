@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 export function HomeTopSection() {
-    const title = useRef(null);
+    const title = useRef<HTMLHeadingElement>(null);
     const router = useRouter();
     useEffect(() => {
         if (router.asPath === '/#home' && title.current) {

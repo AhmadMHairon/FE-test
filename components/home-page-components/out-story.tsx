@@ -8,7 +8,8 @@ import Img4 from '@/assets/img-4.svg';
 import { useRouter } from 'next/router';
 
 const OurStory = () => {
-    const title = useRef(null);
+    const title = useRef<HTMLHeadingElement>(null);
+
     const router = useRouter();
     useEffect(() => {
         if (router.asPath === '/#story' && title.current) {

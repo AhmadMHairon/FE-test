@@ -5,7 +5,8 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 const OurChef = () => {
-    const title = useRef(null);
+    const title = useRef<HTMLHeadingElement>(null);
+
     const router = useRouter();
     useEffect(() => {
         if (router.asPath === '/#Chef' && title.current) {
