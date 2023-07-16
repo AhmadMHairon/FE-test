@@ -4,14 +4,17 @@ import { FeaturesSection } from '@/components/home-page-components/features-sect
 import { HomeTopSection } from '@/components/home-page-components/top-section';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import OurStory from '@/components/home-page-components/out-story';
+import OurChef from '@/components/home-page-components/our-chef';
+import OurMenu from '@/components/home-page-components/our-menu';
 
 export default function HomePage() {
     return (
-        <div>
+        <div className="bg-[#1C1917]">
             <HomeTopSection />
-            <BuildYourWealth />
-            <FeaturesSection />
-            <LastSection />
+            <OurStory />
+            <OurChef />
+            <OurMenu />
         </div>
     );
 }
