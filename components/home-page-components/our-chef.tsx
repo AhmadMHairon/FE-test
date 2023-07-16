@@ -31,14 +31,19 @@ const OurChef = () => {
                             damping: 8,
                             stiffness: 100,
                         }}
-                        className="font-bold sm:text-5xl text-3xl text-secondary-main">
+                        className="font-bold  text-secondary-main
+                        sm:text-title text-minTitle sm:leading-title leading-minTitle
+                        ">
                         Our Chef
                     </motion.h1>
                     <motion.div
                         initial={{ opacity: 0, y: 65 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
-                        className="text-xl sm:text-2xl text-primary-light space-y-5 ">
+                        className="text-xl   text-primary-desc space-y-5 
+                        sm:text-desc text-minDesc sm:leading-desc leading-minDesc
+                        
+                        ">
                         <p>
                             Chef Shaheen, a multi-talented individual who wears many hats in the
                             culinary world. Not only is he a celebrity chef, but {"he's"} also an

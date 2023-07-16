@@ -16,6 +16,24 @@ module.exports = {
             },
         },
         extend: {
+            fontSize: {
+                navBar: '14px',
+                mainTitle: '40px',
+                desc: '18px',
+                title: '36px',
+                minMainTitle: '30px',
+                minDesc: '16px',
+                minTitle: '36px',
+            },
+            lineHeight: {
+                mainTitle: '48px',
+                desc: '28px',
+                title: '40px',
+                minMainTitle: '48px',
+                minDesc: '24px',
+                minTitle: '36px',
+            },
+
             colors: {
                 primary: {
                     lighter: '#FAFAF9',
@@ -23,6 +41,7 @@ module.exports = {
                     main: '#44403C',
                     dark: '#3D9866',
                     footer: '#0C0A09',
+                    desc: '#FAFAF9CC',
                 },
                 secondary: {
                     main: '#F4C377',

@@ -30,14 +30,14 @@ export function HomeTopSection() {
                             damping: 8,
                             stiffness: 100,
                         }}
-                        className="font-bold sm:text-5xl text-[30px] text-primary-light">
+                        className="font-bold  sm:text-mainTitle text-minMainTitle sm:leading-mainTitle leading-minMainTitle  text-primary-light">
                         Discover a New Dimension in Iraqi Cuisine
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
-                        className="max-w-[670px] text-xl sm:text-2xl text-primary-light text-[30px]">
+                        className="max-w-[670px] sm:text-desc text-minDesc sm:leading-desc leading-minDesc text-primary-desc ">
                         We infuse our dishes with a non-traditional approach, adding a unique
                         dimension to Iraqi cuisine. Drawing inspiration from the ancient
                         civilizations of Iraq, our culinary creations serve as a bridge between

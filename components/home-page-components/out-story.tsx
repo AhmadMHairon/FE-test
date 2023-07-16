@@ -33,14 +33,14 @@ const OurStory = () => {
                             damping: 8,
                             stiffness: 100,
                         }}
-                        className="font-bold sm:text-5xl text-3xl text-secondary-main">
+                        className="font-bold sm:text-title text-minTitle sm:leading-title leading-minTitle text-secondary-main">
                         Our Story
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 65 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
-                        className="max-w-[670px] text-xl sm:text-2xl text-primary-light">
+                        className="max-w-[670px]  text-primary-desc sm:text-desc text-minDesc sm:leading-desc leading-minDesc">
                         {'"Yaba" '}made its debut as the {"world's"} pioneering modern Iraqi
                         restaurant In 2022. With our innovative approach, we reimagine traditional
                         Iraqi cuisine into a multi-dimensional culinary experience. Inspired by the
