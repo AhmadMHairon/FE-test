@@ -4,20 +4,20 @@ export const buttonVariants = cva('rounded-lg', {
     variants: {
         color: {
             primary: [
-                'bg-primary-dark',
-                'text-white',
-                'border-transparent',
-                'hover:[&:not(:disabled)]:bg-primary-main hover:transition-all hover:duration-200',
-                'focus:ring-primary-main focus:outline-none focus:bg-primary-main focus:ring-1 focus:ring-offset-1',
-                'disabled:bg-primary-lighter disabled:text-primary-main disabled:cursor-not-allowed',
+                'bg-secondary-main',
+                'text-primary-main',
+                // 'hover:[&:not(:disabled)]:bg-secondary-main hover:transition-all hover:duration-200',
+                // 'focus:ring-primary-main focus:outline-none focus:bg-primary-main focus:ring-1 focus:ring-offset-1',
+                // 'disabled:bg-primary-lighter disabled:text-primary-main disabled:cursor-not-allowed',
             ],
             secondary: [
-                'bg-white',
-                'text-primary-main',
-                'border-transparent',
-                'hover:[&:not(:disabled)]:bg-gray-100 hover:transition-all hover:duration-200',
-                'focus:ring-gray-100 focus:outline-none focus:bg-gray-100 focus:ring-1 focus:ring-offset-1',
-                'disabled:bg-gray-300 disabled:text-primary-main disabled:cursor-not-allowed',
+                'bg-transparent',
+                'text-primary-light',
+                'border-secondary-main',
+                "border"
+                // 'hover:[&:not(:disabled)]:bg-gray-100 hover:transition-all hover:duration-200',
+                // 'focus:ring-gray-100 focus:outline-none focus:bg-gray-100 focus:ring-1 focus:ring-offset-1',
+                // 'disabled:bg-gray-300 disabled:text-primary-main disabled:cursor-not-allowed',
             ],
         },
         size: {

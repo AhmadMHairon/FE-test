@@ -17,8 +17,8 @@ export const SignupContent = ({ questions }: Props) => {
 
     return (
         <div className="flex relative justify-center lg:justify-end flex-grow min-h-screen items-center h-full">
-            <div className='absolute top-0 left-0 w-screen h-screen'>
-            <AuthShapes shrink={!!questionsList?.length} />
+            <div className="absolute top-0 left-0 w-screen h-screen">
+                <AuthShapes shrink={!!questionsList?.length} />
             </div>
             <AnimatePresence mode="wait">
                 {!questionsList?.length && (

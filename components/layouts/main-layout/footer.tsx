@@ -1,19 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/common/container';
-import TwiiterIcon from '@/assets/twitter-icon.svg';
-import LinkedinIcon from '@/assets/linkedin-icon.svg';
-import InstagramrIcon from '@/assets/instagram-icon.svg';
-import WafraDarkLogo from '@/assets/wafra-logo-light-mode.png';
+import mapImage from '@/assets/map.svg';
+import yabaLogo from '@/assets/yaba-logo.svg';
 
 function Footer() {
     return (
-        <footer className="bg-white">
+        <footer className="bg-primary-footer">
             <Container>
-                <div className="flex items-center justify-between border-t-2 py-7 border-primary-main">
+                <div className="grid md:grid-cols-6 grid-cols-5 justify-between py-7 pt-16 gap-3">
                     <Link href="/">
                         <Image
-                            src={WafraDarkLogo}
+                            src={yabaLogo}
                             alt="wafra-logo"
                             height={40}
                             width={160}
@@ -21,10 +19,26 @@ function Footer() {
                             className="h-10 w-44 object-contain"
                         />
                     </Link>
-                    <div className="flex items-center gap-5">
-                        <Image src={LinkedinIcon} alt="" className="h-8 w-8" />
-                        <Image src={InstagramrIcon} alt="" className="h-8 w-8" />
-                        <Image src={TwiiterIcon} alt="" className="h-8 w-8" />
+                    <div
+                        className="grid gap-10 text-primary-light flex-1 col-span-4"
+                        style={{
+                            gridTemplateColumns: '1fr 1fr 1fr 2fr',
+                        }}>
+                        <div>Instagram</div>
+                        <div>Menu</div>
+                        <div>Contact us</div>
+                        <div>Location</div>
+                        <div>Facebook</div>
+                        <div>Our Story</div>
+                        <div>info@yabarest.com</div>
+                        <div>Dubai, UAE</div>
+                        <div />
+                        <div>Our Chef</div>
+                        <div>+971 58 583 0332</div>
+                        <div>Jumeirah1, Wasl Vita Mall shop no. S31</div>
+                    </div>
+                    <div className="flex items-center col-span-2 md:col-span-1">
+                        <Image src={mapImage} alt="" />
                     </div>
                 </div>
             </Container>

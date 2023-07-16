@@ -18,10 +18,15 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    lighter: '#c8facd',
-                    light: '#5ce585',
-                    main: '#55D48E',
+                    lighter: '#FAFAF9',
+                    light: '#FAFAF9',
+                    main: '#44403C',
                     dark: '#3D9866',
+                    footer: '#0C0A09',
+                },
+                secondary: {
+                    main: '#F4C377',
+                    dark: '#F4C377',
                 },
             },
             boxShadow: {

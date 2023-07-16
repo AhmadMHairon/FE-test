@@ -3,6 +3,9 @@ import { header_links } from './_links';
 import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import yabaLogo from '@/assets/yaba-logo.svg';
+import { Button } from '@/components/common/button';
 
 const MENU_OPEN_DURATION = 0.3;
 
@@ -48,7 +51,7 @@ export const HeaderMenu = () => {
 
             <AnimatePresence>
                 {isOpen && (
-                    <div className="fixed inset-0 z-[997]">
+                    <div className="fixed inset-0 z-[997] h-screen">
                         <style>
                             {`
                             body {
@@ -75,8 +78,8 @@ export const HeaderMenu = () => {
                                 duration: MENU_OPEN_DURATION,
                                 ease: 'easeInOut',
                             }}
-                            className="flex flex-col bg-white w-[266px] absolute rtl:left-0 ltr:right-0 inset-y-0">
-                            <div className="flex justify-between items-center p-4">
+                            className="flex flex-col bg-primary-main w-[266px] absolute rtl:left-0 ltr:right-0 inset-y-0 ">
+                            <div className="flex justify-between items-center p-4 ">
                                 <motion.button
                                     initial={isReducedMotion ? {} : { opacity: 0, x: 15 }}
                                     animate={isReducedMotion ? {} : { opacity: 1, x: 0 }}
@@ -100,26 +103,19 @@ export const HeaderMenu = () => {
                                     </svg>
                                 </motion.button>
                                 <Link href="/" aria-label="logo">
-                                    <motion.svg
+                                    <motion.div
                                         initial={{ opacity: 0, x: -15 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -15 }}
-                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                        width="128"
-                                        height="52"
-                                        className="w-[80px]"
-                                        viewBox="0 0 128 52"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M110.713 0.297607L75.605 35.3856V51.9998H93.556L128 17.5748V0.297607H110.713Z"
-                                            fill="#55D48E"
+                                        transition={{ duration: 0.5, ease: 'easeInOut' }}>
+                                        <Image
+                                            width="128"
+                                            height="52"
+                                            className="w-[80px]"
+                                            src={yabaLogo}
+                                            alt="logo"
                                         />
-                                        <path
-                                            d="M75.605 17.5749V0.297656H58.31L25.063 33.526V0.00805664H0.61499V35.3323H23.255L23.21 35.3856V51.9998H41.153L58.165 34.9969V35.3323H75.605V17.5749Z"
-                                            fill="#55D48E"
-                                        />
-                                    </motion.svg>
+                                    </motion.div>
                                 </Link>
                             </div>
                             <motion.hr
@@ -137,7 +133,7 @@ export const HeaderMenu = () => {
                                     delay: 0.1,
                                 }}
                             />
-                            <ul className="flex-grow">
+                            <ul className="flex-grow bg-primary-main">
                                 {header_links.map((link, idx) => {
                                     const isHashLink = link.href.startsWith('#');
                                     const href = !isHashLink
@@ -147,7 +143,7 @@ export const HeaderMenu = () => {
                                         : `${link.page}${link.href}`;
                                     return (
                                         <motion.li
-                                            className="font-semibold"
+                                            className="font-semibold transition-all  focus:outline-none hover:text-secondary-main text-primary-light"
                                             key={href}
                                             initial={isReducedMotion ? {} : { opacity: 0, y: 27 }}
                                             animate={isReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -178,7 +174,26 @@ export const HeaderMenu = () => {
                                     );
                                 })}
                             </ul>
-                            <div className="pb-4">
+                            <div className="pb-4 bg-primary-main ">
+                                <motion.div
+                                    className="justify-center flex gap-3"
+                                    initial={{ opacity: 0, y: 65 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        delay: 0.65,
+                                        type: 'spring',
+                                        bounce: 0.25,
+                                        damping: 8,
+                                    }}>
+                                    <Button
+                                        as={Link}
+                                        href="/sign-up"
+                                        size={'medium'}
+                                        className="text-2xl text-center w-[220px] py-3">
+                                        Contact us
+                                    </Button>
+                                </motion.div>
+
                                 <motion.hr
                                     className="border-primary-main mb-4"
                                     variants={{
