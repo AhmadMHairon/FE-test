@@ -22,7 +22,6 @@ type DropdownQuestionProps = {
 export const DropdownAnswers = ({ options }: DropdownQuestionProps) => {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('');
-    console.log(value);
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
