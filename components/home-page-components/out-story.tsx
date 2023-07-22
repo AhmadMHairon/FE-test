@@ -5,23 +5,16 @@ import Img1 from '@/assets/img-1.svg';
 import Img2 from '@/assets/img-2.svg';
 import Img3 from '@/assets/img-3.svg';
 import Img4 from '@/assets/img-4.svg';
-import { useRouter } from 'next/router';
+import { Container } from '../common/container';
 
 const OurStory = () => {
     const title = useRef<HTMLHeadingElement>(null);
 
-    const router = useRouter();
-    useEffect(() => {
-        if (router.asPath === '/#story' && title.current) {
-            title.current?.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [router.asPath]);
-
     const inView = useInView(title, { amount: 'some', once: true });
     return (
-        <section id="about" className=" flex flex-col md:mt-14 mt-0 ">
-            <div className="items-center grid md:grid-cols-2 gap-4 z-10 flex-1 ">
-                <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center pt-16 md:pt-32 pb-24 md:px-20 px-10 ">
+        <section id="about" className=" flex flex-col lg:mt-14 mt-0 ">
+            <Container className="items-center grid lg:grid-cols-2 gap-4 z-10 flex-1 ">
+                <div className="space-y-6 lg:space-y-12 order-2 flex flex-col justify-center pt-16 lg:pt-32 pb-24 lg:px-20 px-10 ">
                     <motion.h1
                         ref={title}
                         initial={{ opacity: 0, y: 65 }}
@@ -38,7 +31,7 @@ const OurStory = () => {
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 65 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
                         className="max-w-[670px]  text-primary-desc sm:text-desc text-minDesc sm:leading-desc leading-minDesc">
                         {'"Yaba" '}made its debut as the {"world's"} pioneering modern Iraqi
@@ -55,7 +48,7 @@ const OurStory = () => {
                     initial={{ opacity: 0, y: 65 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.75, type: 'spring', bounce: 0.25, damping: 8 }}
-                    className="grid grid-cols-2 justify-center gap-10 order-3 md:order-1 h-full w-full relative px-10">
+                    className="grid grid-cols-2 justify-center gap-10 order-3 lg:order-1 h-full w-full relative px-10">
                     <div
                         className="grid gap-10 flex-col"
                         style={{
@@ -101,7 +94,7 @@ const OurStory = () => {
                         </div>
                     </div>
                 </motion.div>
-            </div>
+            </Container>
         </section>
     );
 };

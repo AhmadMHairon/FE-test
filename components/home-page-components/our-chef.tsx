@@ -1,25 +1,17 @@
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import chefImage from '@/assets/chef-image.svg';
-import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { useRef } from 'react';
+import { Container } from '../common/container';
 
 const OurChef = () => {
     const title = useRef<HTMLHeadingElement>(null);
-
-    const router = useRouter();
-    useEffect(() => {
-        if (router.asPath === '/#chef' && title.current) {
-            title.current?.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [router.asPath]);
-
     const inView = useInView(title, { amount: 'some', once: true });
 
     return (
         <section id="about" className=" min-h-[70vh] flex flex-col ">
-            <div className="items-center grid md:grid-cols-2 gap-4 z-10 flex-1 ">
-                <div className="space-y-6 md:space-y-12 order-1 flex flex-col justify-center pt-16 md:pt-32 pb-24 md:px-20 px-10 z-10 ">
+            <Container className="items-center grid lg:grid-cols-2 gap-4 z-10 flex-1 ">
+                <div className="space-y-6 lg:space-y-12 order-1 flex flex-col justify-center pt-16 lg:pt-32 pb-24 lg:px-20 px-10 z-10 ">
                     <motion.h1
                         ref={title}
                         initial={{ opacity: 0, y: 65 }}
@@ -75,7 +67,7 @@ const OurChef = () => {
                     className="justify-center order-2 h-full w-full relative flex items-center ">
                     <Image alt="" src={chefImage} priority />
                 </motion.div>
-            </div>
+            </Container>
         </section>
     );
 };

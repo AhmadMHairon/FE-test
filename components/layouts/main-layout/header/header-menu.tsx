@@ -33,7 +33,7 @@ export const HeaderMenu = () => {
 
     return (
         <Fragment>
-            <button aria-label="menu" className="block md:hidden" onClick={setOpen}>
+            <button aria-label="menu" className="block lg:hidden" onClick={setOpen}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -143,7 +143,7 @@ export const HeaderMenu = () => {
                                         : `${link.page}${link.href}`;
                                     return (
                                         <motion.li
-                                            className="font-semibold transition-all  focus:outline-none hover:text-secondary-main text-primary-light"
+                                            className="font-semibold focus:outline-none hover:text-secondary-main text-primary-light"
                                             key={href}
                                             initial={isReducedMotion ? {} : { opacity: 0, y: 27 }}
                                             animate={isReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -209,15 +209,6 @@ export const HeaderMenu = () => {
                                         delay: 0.1,
                                     }}
                                 />
-
-                                <motion.span
-                                    initial={isReducedMotion ? {} : { opacity: 0 }}
-                                    animate={isReducedMotion ? {} : { opacity: 1 }}
-                                    exit={isReducedMotion ? {} : { opacity: 0 }}
-                                    transition={{ duration: 0.35, ease: 'easeInOut', delay: 0.2 }}
-                                    className="text-sm block text-black/60 text-center">
-                                    © {new Date().getFullYear()} وفرة. جميع الحقوق محفوظة
-                                </motion.span>
                             </div>
                         </motion.div>
                     </div>

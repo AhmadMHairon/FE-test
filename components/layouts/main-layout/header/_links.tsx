@@ -4,11 +4,7 @@ export const header_links = [
         href: '#home',
         page: '/',
     },
-    {
-        name: 'Menu',
-        href: '#menu',
-        page: '/',
-    },
+
     {
         name: 'Our Story',
         href: '#story',
@@ -17,6 +13,11 @@ export const header_links = [
     {
         name: 'Know the Chef',
         href: '#chef',
+        page: '/',
+    },
+    {
+        name: 'Menu',
+        href: '#menu',
         page: '/',
     },
     {

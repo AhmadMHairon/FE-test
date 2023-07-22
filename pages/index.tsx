@@ -4,8 +4,13 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import OurStory from '@/components/home-page-components/out-story';
 import OurChef from '@/components/home-page-components/our-chef';
 import OurMenu from '@/components/home-page-components/our-menu';
+import { useEffect } from 'react';
 
 export default function HomePage() {
+    useEffect(() => {
+        document.title = 'Home | Restaurant';
+    }, []);
+
     return (
         <div className="bg-[#1C1917]">
             <HomeTopSection />

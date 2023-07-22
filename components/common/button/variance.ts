@@ -1,21 +1,25 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const buttonVariants = cva('rounded-lg', {
+export const buttonVariants = cva('rounded-md relative whitespace-nowrap', {
     variants: {
         color: {
             primary: [
                 'bg-secondary-main',
                 'text-primary-main',
-                // 'hover:[&:not(:disabled)]:bg-secondary-main hover:transition-all hover:duration-200',
+                "overflow-hidden",
+                '[&>.edge]:border-transparent',
+                '[&>.edge]:absolute',
+                // 'hover:[&:not(:disabled)]:bg-secondary-main ',
                 // 'focus:ring-primary-main focus:outline-none focus:bg-primary-main focus:ring-1 focus:ring-offset-1',
-                // 'disabled:bg-primary-lighter disabled:text-primary-main disabled:cursor-not-allowed',
             ],
             secondary: [
                 'bg-transparent',
                 'text-primary-light',
                 'border-secondary-main',
-                "border"
-                // 'hover:[&:not(:disabled)]:bg-gray-100 hover:transition-all hover:duration-200',
+                '[&>.edge]:border-primary-light',
+                '[&>.edge]:absolute',
+                //i need to select a class called edge to apply some effects to it
+                // 'hover:[&:not(:disabled)]:bg-gray-100 ',
                 // 'focus:ring-gray-100 focus:outline-none focus:bg-gray-100 focus:ring-1 focus:ring-offset-1',
                 // 'disabled:bg-gray-300 disabled:text-primary-main disabled:cursor-not-allowed',
             ],
@@ -46,5 +50,7 @@ export const buttonVariants = cva('rounded-lg', {
         size: 'medium',
     },
 });
+
+
 
 export type ButtonVariantsType = VariantProps<typeof buttonVariants>;

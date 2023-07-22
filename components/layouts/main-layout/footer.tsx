@@ -8,22 +8,17 @@ function Footer() {
     return (
         <footer className="bg-primary-footer">
             <Container>
-                <div className="grid md:grid-cols-6 grid-cols-5 justify-between py-7 pt-16 gap-3">
+                <div className="grid lg:grid-cols-6 grid-cols-5  justify-between py-7 pt-16 gap-3">
                     <Link href="/">
                         <Image
                             src={yabaLogo}
                             alt="wafra-logo"
                             height={40}
                             width={160}
-                            priority
                             className="h-10 w-44 object-contain"
                         />
                     </Link>
-                    <div
-                        className="grid gap-10 text-primary-light flex-1 col-span-4"
-                        style={{
-                            gridTemplateColumns: '1fr 1fr 1fr 2fr',
-                        }}>
+                    <div className="grid gap-10 sm:grid-cols-4 grid-cols-2 text-primary-light flex-1 col-span-6 lg:col-span-4 break-words">
                         <div>Instagram</div>
                         <div>Menu</div>
                         <div>Contact us</div>

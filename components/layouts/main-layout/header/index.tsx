@@ -16,6 +16,7 @@ const inter = Inter({ subsets: ['latin'] });
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const router = useRouter();
+    const [activeLink, setActiveLink] = useState(header_links[0].href);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,6 +25,15 @@ function Header() {
             } else {
                 setIsScrolled(false);
             }
+            const sections = document.querySelectorAll('section');
+
+            let activeSection = header_links[0].href;
+            sections.forEach((section, index) => {
+                if (window.scrollY + 100 > section?.offsetTop) {
+                    activeSection = header_links[index].href;
+                }
+            });
+            setActiveLink(activeSection);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -53,8 +63,8 @@ function Header() {
                             className="h-10 sm:w-48 w-40 object-contain"
                         />
                     </Link>
-                    <ul className="hidden md:flex gap-8 justify-between ">
-                        {header_links.map(link => {
+                    <ul className="hidden lg:flex gap-8 justify-between ">
+                        {header_links.map((link, index) => {
                             const isHashLink = link.href.startsWith('#');
                             const href = !isHashLink
                                 ? link.href
@@ -64,7 +74,20 @@ function Header() {
 
                             return (
                                 <li
-                                    className="font-semibold text-primary-light/50  transition-all text-nav hover:text-secondary-main"
+                                    onClick={() => {
+                                        if (isHashLink) {
+                                            const sections = document.querySelectorAll('section');
+                                            window.scrollTo({
+                                                top: sections[index]?.offsetTop - 99,
+                                                behavior: 'smooth',
+                                            });
+                                        }
+                                    }}
+                                    className={`whitespace-nowrap relative font-semibold   transition-all text-nav hover:text-secondary-main flex flex-col after:content-[''] after:h-[2px] after:transition-all ${
+                                        activeLink === href
+                                            ? 'after:bg-secondary-main after:w-full text-secondary-main'
+                                            : 'after:bg-primary-main after:w-0 text-primary-light/50'
+                                    }  hover:after:w-full`}
                                     key={href}>
                                     <Link href={href}>{link.name}</Link>
                                 </li>
@@ -77,10 +100,10 @@ function Header() {
                                 {' '}
                                 En{' '}
                             </div>
-                            <div className=" border-2"> </div>
+                            <div className=" border-2" />
                         </div>
 
-                        <Button as={NextLink} href="/sign-up" className="hidden md:block">
+                        <Button as={NextLink} href="/sign-up" className="hidden lg:block">
                             Contact us
                         </Button>
                         <HeaderMenu />

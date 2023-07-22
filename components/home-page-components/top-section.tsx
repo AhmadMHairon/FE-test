@@ -1,24 +1,23 @@
 import { Button } from '../common/button';
-import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-section-image.png';
-import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
-
+import { useRef } from 'react';
+import { Container } from '../common/container';
+import Link from 'next/link';
 export function HomeTopSection() {
     const title = useRef<HTMLHeadingElement>(null);
-    const router = useRouter();
-    useEffect(() => {
-        if (router.asPath === '/#home' && title.current) {
-            title.current?.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [router.asPath]);
 
     return (
-        <section id="about" className=" min-h-screen flex flex-col overflow-hidden ">
-            <div className="items-center grid md:grid-cols-2 gap-4 z-10 flex-1 ">
-                <div className="space-y-6 md:space-y-12 order-2 flex flex-col justify-center pt-32 pb-24 px-20 z-10 ">
+        <section id="about" className=" min-h-screen flex flex-col overflow-hidden relative ">
+            <div className=" absolute w-full  z-1  h-full grid grid-cols-2">
+                <div></div>
+                <div className="flex justify-center order-1 lg:order-3 absolute h-full w-full lg:relative ">
+                    <Image alt="" src={heroImage} priority fill={true} />
+                </div>
+            </div>
+            <Container className="items-center grid lg:grid-cols-2 gap-4 z-10 flex-1 ">
+                <div className="space-y-6 lg:space-y-12 order-2 flex flex-col justify-center pt-32 pb-24 px-20 z-10 ">
                     <motion.h1
                         ref={title}
                         initial={{ opacity: 0, y: 65 }}
@@ -45,7 +44,7 @@ export function HomeTopSection() {
                         connection.
                     </motion.p>
                     <motion.div
-                        className="justify-start flex gap-3"
+                        className="justify-start flex gap-3 flex-col sm:flex-row"
                         style={{
                             marginTop: '4rem',
                         }}
@@ -54,14 +53,12 @@ export function HomeTopSection() {
                         transition={{ delay: 0.65, type: 'spring', bounce: 0.25, damping: 8 }}>
                         <Button
                             as={Link}
-                            href="/sign-up"
+                            href="/menu"
                             size={'medium'}
                             className="text-2xl text-center w-[220px] py-3">
                             View menu
                         </Button>
                         <Button
-                            as={Link}
-                            href="/sign-up"
                             color={'secondary'}
                             size={'medium'}
                             className="text-2xl text-center w-[220px] py-3">
@@ -69,11 +66,7 @@ export function HomeTopSection() {
                         </Button>
                     </motion.div>
                 </div>
-
-                <div className="flex justify-center order-1 md:order-3 absolute h-full w-full md:relative ">
-                    <Image alt="" src={heroImage} priority fill={true} />
-                </div>
-            </div>
+            </Container>
         </section>
     );
 }
