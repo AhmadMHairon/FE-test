@@ -2,11 +2,11 @@ import { useInView, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Container } from '../common/container';
 import FoodCard from '../common/card/food-card';
-import { items, menuSections } from '@/constants/food';
+import { itemsGroupType, menuSections } from '@/constants/food';
 import { Button } from '../common/button';
 import Link from 'next/link';
 
-const OurMenu = () => {
+const OurMenu = ({ items }: { items: itemsGroupType }) => {
     const title = useRef<HTMLHeadingElement>(null);
     const inView = useInView(title, { amount: 'some', once: true });
     const [activeSection, setActiveSection] = useState('Hot Starters');
@@ -65,16 +65,14 @@ const OurMenu = () => {
                 <div
                     className="sm:grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 hidden"
                     style={{ gridTemplateColumns: ' repeat(auto-fill, minmax(320px, 1fr))' }}>
-                    {items
-                        .filter(item => item.type === activeSection)
+                    {items[activeSection]
                         .filter((item, index) => index < 9)
                         .map(item => (
                             <FoodCard key={item.id} item={item} />
                         ))}
                 </div>
                 <div className="flex grid-cols-2 overflow-x-scroll gap-10 mt-16 sm:hidden pb-4 px-6">
-                    {items
-                        .filter(item => item.type === activeSection)
+                    {items[activeSection]
                         .filter((item, index) => index < 9)
                         .map(item => (
                             <FoodCard key={item.id} item={item} />

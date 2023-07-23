@@ -1,16 +1,9 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
+import { itemType } from '@/constants/food';
 
-const FoodCard = ({
-    item,
-}: {
-    item: {
-        image: StaticImageData;
-        title: string;
-        type: string;
-    };
-}) => {
+const FoodCard = ({ item }: { item: itemType }) => {
     return (
         <div className=" h-[400px] min-w-[300px] flex flex-col rounded-md overflow-hidden bg-[#292524]">
             <div className="flex-1 relative">
