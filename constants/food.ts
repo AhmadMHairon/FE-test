@@ -278,7 +278,6 @@ export const itemsGroup = {
             id: 42,
         },
     ],
-
 }
 
 export type itemType = {

@@ -13,7 +13,7 @@ export function HomeTopSection() {
             <div className=" absolute w-full  z-1  h-full grid grid-cols-2">
                 <div></div>
                 <div className="flex justify-center order-1 lg:order-3 absolute h-full w-full lg:relative ">
-                    <Image alt="" src={heroImage} priority fill={true} />
+                    <Image alt="" src={heroImage} priority fill={true} className=" object-cover" />
                 </div>
             </div>
             <Container className="items-center grid lg:grid-cols-2 gap-4 z-10 flex-1 ">

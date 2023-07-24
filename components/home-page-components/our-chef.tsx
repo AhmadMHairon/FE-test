@@ -14,8 +14,8 @@ const OurChef = () => {
                 <div className="space-y-6 lg:space-y-12 order-1 flex flex-col justify-center pt-16 lg:pt-32 pb-24 lg:px-20 px-10 z-10 ">
                     <motion.h1
                         ref={title}
-                        initial={{ opacity: 0, y: 65 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        initial={{ opacity: 0, x: 70 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{
                             delay: 0.25,
                             type: 'spring',
@@ -29,8 +29,8 @@ const OurChef = () => {
                         Our Chef
                     </motion.h1>
                     <motion.div
-                        initial={{ opacity: 0, y: 65 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        initial={{ opacity: 0, x: -70 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
                         className="text-xl   text-primary-desc space-y-5 
                         sm:text-desc text-minDesc sm:leading-desc leading-minDesc
@@ -61,11 +61,11 @@ const OurChef = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 65 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.5, type: 'spring', bounce: 0.25, damping: 8 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.75, type: 'spring', bounce: 0.02, damping: 12 }}
                     className="justify-center order-2 h-full w-full relative flex items-center ">
-                    <Image alt="" src={chefImage} priority />
+                    <Image alt="" src={chefImage} />
                 </motion.div>
             </Container>
         </section>

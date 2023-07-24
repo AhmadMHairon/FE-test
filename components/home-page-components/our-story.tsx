@@ -54,44 +54,76 @@ const OurStory = () => {
                         style={{
                             gridTemplateRows: '1fr 1fr',
                         }}>
-                        <div className=" ">
+                        <motion.div
+                            initial={{ opacity: 0, x: -65 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{
+                                delay: 1,
+                                type: 'spring',
+                                bounce: 0.25,
+                                damping: 8,
+                            }}
+                            className=" ">
                             <Image
                                 alt=""
                                 src={Img1}
-                                priority
-                                className="h-full w-full overflow-hidden object-cover"
+                                className="h-full w-full overflow-hidden object-cover "
                             />
-                        </div>
-                        <div className="">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 65 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{
+                                delay: 1.25,
+                                type: 'spring',
+                                bounce: 0.25,
+                                damping: 8,
+                            }}
+                            className="">
                             <Image
                                 alt=""
                                 src={Img2}
-                                priority
-                                className="h-full w-full overflow-hidden object-cover"
+                                className="h-full w-full overflow-hidden object-cover "
                             />
-                        </div>
+                        </motion.div>
                     </div>
                     <div
                         className="pt-6 grid gap-10 flex-col"
                         style={{
                             gridTemplateRows: '1fr 1fr',
                         }}>
-                        <div className="">
+                        <motion.div
+                            initial={{ opacity: 0, y: 65 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{
+                                delay: 1.75,
+                                type: 'spring',
+                                bounce: 0.25,
+                                damping: 8,
+                            }}
+                            className="">
                             <Image
                                 alt=""
                                 src={Img3}
-                                priority
                                 className="h-full w-full overflow-hidden object-cover"
                             />
-                        </div>
-                        <div className="">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 65 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{
+                                delay: 1.5,
+                                type: 'spring',
+                                bounce: 0.25,
+                                damping: 8,
+                            }}
+                            className="">
                             <Image
                                 alt=""
                                 src={Img4}
-                                priority
                                 className="h-full w-full overflow-hidden object-cover"
                             />
-                        </div>
+                        </motion.div>
                     </div>
                 </motion.div>
             </Container>

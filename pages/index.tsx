@@ -13,7 +13,7 @@ export default function HomePage({ items }: any) {
     }, []);
 
     return (
-        <div className="bg-[#1C1917]">
+        <div>
             <HomeTopSection />
             <OurStory />
             <OurChef />

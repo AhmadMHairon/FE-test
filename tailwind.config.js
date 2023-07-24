@@ -42,6 +42,7 @@ module.exports = {
                     dark: '#3D9866',
                     footer: '#0C0A09',
                     desc: '#FAFAF9CC',
+                    background: '#1C1917',
                 },
                 secondary: {
                     main: '#F4C377',

@@ -1,24 +1,28 @@
-import { useInView, motion } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Container } from '../common/container';
-import FoodCard from '../common/card/food-card';
-import { itemsGroupType, menuSections } from '@/constants/food';
-import { Button } from '../common/button';
-import Link from 'next/link';
+import { Container } from '@/components/common/container';
+import { itemsGroup, itemsGroupType, menuSections } from '@/constants/food';
+import { GetStaticProps } from 'next';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import FoodCard from '@/components/common/card/food-card';
 
-const OurMenu = ({ items }: { items: itemsGroupType }) => {
-    const title = useRef<HTMLHeadingElement>(null);
-    const inView = useInView(title, { amount: 'some', once: true });
+const MenuPage = ({ items }: { items: itemsGroupType }) => {
     const [activeSection, setActiveSection] = useState('Hot Starters');
+    const [search, setSearch] = useState('');
+
+    const itemsArrays = Object.values(itemsGroup);
+    const allItems = itemsArrays.flat();
+
+    const filteredItems = allItems.filter(item =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
-        <section id="why-wafra" className=" text-center mx-auto py-16 text-secondary-main">
-            <Container className="flex flex-col justify-center space-y-14">
+        <main className="min-h-screen text-center mx-auto py-32 text-secondary-main">
+            <Container className="flex flex-col justify-center space-y-14 ">
                 <motion.h2
                     initial={{ opacity: 0, y: 65 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: 'easeInOut' }}
-                    ref={title}
                     className="font-bold sm:text-5xl text-3xl">
                     Our Menu
                 </motion.h2>
@@ -38,12 +42,13 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                         ))}
                     </ul>
                 </div>
+
                 <div>
                     <div className="relative inline-block w-48 sm:hidden">
                         <select
                             value={activeSection}
                             onChange={e => setActiveSection(e.target.value)}
-                            className="block appearance-none w-full text-primary-light py-4 px-4 pr-8 rounded leading-tight focus:outline-none bg-[#0C0A09] focus:border-blue-500">
+                            className="block appearance-none w-full  text-primary-light py-4 px-4 pr-8 rounded leading-tight focus:outline-none bg-[#0C0A09] focus:border-blue-500">
                             {menuSections.map(option => (
                                 <option key={option} value={option}>
                                     {option}
@@ -65,39 +70,30 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                 </div>
 
                 <div
-                    className="sm:grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 hidden"
+                    className="grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 "
                     style={{ gridTemplateColumns: ' repeat(auto-fill, minmax(320px, 1fr))' }}>
-                    {items[activeSection]
-                        .filter((item, index) => index < 9)
-                        .map((item, index) => (
-                            <motion.div
-                                initial={{ opacity: 0, y: 65 }}
-                                animate={inView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.7 + index * 0.2, ease: 'easeInOut' }}
-                                key={item.id}>
-                                <FoodCard item={item} />
-                            </motion.div>
-                        ))}
-                </div>
-                <div className="flex grid-cols-2 overflow-x-scroll gap-10 mt-16 sm:hidden pb-4 px-6">
-                    {items[activeSection]
-                        .filter((item, index) => index < 9)
-                        .map(item => (
-                            <FoodCard key={item.id} item={item} />
-                        ))}
-                </div>
-                <div className="w-full ">
-                    <Button
-                        as={Link}
-                        href="/menu"
-                        size={'medium'}
-                        className="text-2xl text-center w-[220px] py-3">
-                        View menu
-                    </Button>
+                    {items[activeSection].map((item, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 65 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7 + index * 0.1, ease: 'easeInOut' }}
+                            key={item.id}>
+                            <FoodCard item={item} />
+                        </motion.div>
+                    ))}
                 </div>
             </Container>
-        </section>
+        </main>
     );
 };
 
-export default OurMenu;
+export default MenuPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+    const items = itemsGroup;
+    return {
+        props: {
+            items,
+        },
+    };
+};
