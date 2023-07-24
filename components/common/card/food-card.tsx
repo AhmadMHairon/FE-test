@@ -9,8 +9,10 @@ const FoodCard = ({ item }: { item: itemType }) => {
             <div className="flex-1 relative">
                 <Image alt="" src={item.image} priority fill={true} className=" object-cover" />
             </div>
-            <div className=" flex justify-between p-5 sm:flex-row flex-col items-start">
-                <div className="text-primary-light">{item.title}</div>
+            <div className=" flex justify-between p-5 items-start flex-wrap">
+                <div className="text-primary-light min-w-[220px]  text-start max-w-full text-ellipsis overflow-hidden pl-4">
+                    {item.title}
+                </div>
                 <Link className="underline" href={'/'}>
                     How is it made?
                 </Link>

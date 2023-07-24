@@ -11,6 +11,9 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
 
     const itemsArrays = Object.values(itemsGroup);
     const allItems = itemsArrays.flat();
+    const handleInputChange = (event: any) => {
+        setSearch(event.target.value);
+    };
 
     const filteredItems = allItems.filter(item =>
         item.title.toLowerCase().includes(search.toLowerCase())
@@ -26,17 +29,31 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
                     className="font-bold sm:text-5xl text-3xl">
                     Our Menu
                 </motion.h2>
+                <div className="w-full flex justify-center">
+                    <div className="flex items-center justify-between w-64 px-4 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-opacity-50 bg-opacity-0 bg-white hover:bg-opacity-5 hover:focus-within:bg-opacity-10 focus-within:bg-opacity-10 transition">
+                        <input
+                            type="text"
+                            value={search}
+                            onChange={handleInputChange}
+                            placeholder="Enter your search term..."
+                            className="flex-1 w-full py-2 px-4 outline-none bg-transparent"
+                        />
+                    </div>
+                </div>
                 <div className="sm:flex justify-center hidden">
                     <ul className="flex gap-8 ">
                         {menuSections.map(section => (
                             <li
                                 className={`font-semibold transition-all  cursor-pointer hover:text-secondary-main flex flex-col after:content-[''] after:h-[2px] after:transition-all ${
-                                    activeSection === section
+                                    activeSection === section && search === ''
                                         ? 'after:bg-secondary-main after:w-full text-secondary-main'
                                         : ' after:bg-primary-main after:w-0 text-primary-light'
                                 }`}
                                 key={section}
-                                onClick={() => setActiveSection(section)}>
+                                onClick={() => {
+                                    setActiveSection(section);
+                                    setSearch('');
+                                }}>
                                 <div>{section}</div>
                             </li>
                         ))}
@@ -72,15 +89,26 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
                 <div
                     className="grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 "
                     style={{ gridTemplateColumns: ' repeat(auto-fill, minmax(320px, 1fr))' }}>
-                    {items[activeSection].map((item, index) => (
-                        <motion.div
-                            initial={{ opacity: 0, y: 65 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7 + index * 0.1, ease: 'easeInOut' }}
-                            key={item.id}>
-                            <FoodCard item={item} />
-                        </motion.div>
-                    ))}
+                    {!search &&
+                        items[activeSection].map((item, index) => (
+                            <motion.div
+                                initial={{ opacity: 0, y: 65 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7 + index * 0.1, ease: 'easeInOut' }}
+                                key={item.id}>
+                                <FoodCard item={item} />
+                            </motion.div>
+                        ))}
+                    {search &&
+                        filteredItems.map((item, index) => (
+                            <motion.div
+                                initial={{ opacity: 0, y: 65 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7 + index * 0.1, ease: 'easeInOut' }}
+                                key={item.id}>
+                                <FoodCard item={item} />
+                            </motion.div>
+                        ))}
                 </div>
             </Container>
         </main>

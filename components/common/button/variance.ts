@@ -27,7 +27,7 @@ export const buttonVariants = cva(' relative whitespace-nowrap transition-all ca
                 '[&>.edge]:absolute',
                 "backdrop-blur-sm",
                 'bg-white',
-                "bg-opacity-10",
+                "bg-opacity-5",
 
 
 
