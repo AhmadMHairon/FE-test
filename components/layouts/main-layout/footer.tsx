@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Container } from '@/components/common/container';
+import { Container } from '@/components/common/ui/container';
 import mapImage from '@/assets/map.svg';
 import yabaLogo from '@/assets/yaba-logo.svg';
 

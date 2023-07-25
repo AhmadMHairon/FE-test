@@ -9,8 +9,13 @@ const Custom404Page = () => {
                 <h1 className="text-6xl font-bold text-primary-light">404</h1>
                 <h2 className="text-2xl font-bold text-primary-light">Page Not Found</h2>
             </div>
-            <Button as={Link} href="/" className="bg-primary-main text-white" color={'secondary'}>
-                Go Back
+            <Button
+                href={'/'}
+                as={Link}
+                color={'secondary'}
+                size={'medium'}
+                className="text-2xl text-center w-[220px] py-3">
+                Go Back Home
             </Button>
         </div>
     );

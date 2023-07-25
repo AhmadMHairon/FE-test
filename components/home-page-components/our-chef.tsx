@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import chefImage from '@/assets/chef-image.svg';
 import { useRef } from 'react';
-import { Container } from '../common/container';
+import { Container } from '../common/ui/container';
 
 const OurChef = () => {
     const title = useRef<HTMLHeadingElement>(null);

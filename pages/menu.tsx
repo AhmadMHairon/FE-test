@@ -1,4 +1,4 @@
-import { Container } from '@/components/common/container';
+import { Container } from '@/components/common/ui/container';
 import { itemsGroup, itemsGroupType, menuSections } from '@/constants/food';
 import { GetStaticProps } from 'next';
 import React, { useState } from 'react';
@@ -29,18 +29,11 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
                     className="font-bold sm:text-5xl text-3xl">
                     Our Menu
                 </motion.h2>
-                <div className="w-full flex justify-center">
-                    <div className="flex items-center justify-between w-64 px-4 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-opacity-50 bg-opacity-0 bg-white hover:bg-opacity-5 hover:focus-within:bg-opacity-10 focus-within:bg-opacity-10 transition">
-                        <input
-                            type="text"
-                            value={search}
-                            onChange={handleInputChange}
-                            placeholder="Enter your search term..."
-                            className="flex-1 w-full py-2 px-4 outline-none bg-transparent"
-                        />
-                    </div>
-                </div>
-                <div className="sm:flex justify-center hidden">
+                <motion.div
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease: 'easeInOut' }}
+                    className="sm:flex justify-center hidden">
                     <ul className="flex gap-8 ">
                         {menuSections.map(section => (
                             <li
@@ -58,9 +51,12 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9, ease: 'easeInOut' }}>
                     <div className="relative inline-block w-48 sm:hidden">
                         <select
                             value={activeSection}
@@ -84,7 +80,23 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
                             </svg>
                         </div>
                     </div>
-                </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.1, ease: 'easeInOut' }}
+                    className="w-full flex justify-center">
+                    <div className="flex items-center justify-between w-64 px-4 py-2 border border-gray-300 rounded-md focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-opacity-50 bg-opacity-0 bg-white hover:bg-opacity-5 hover:focus-within:bg-opacity-10 focus-within:bg-opacity-10 transition">
+                        <input
+                            type="text"
+                            value={search}
+                            onChange={handleInputChange}
+                            placeholder="Enter your search term..."
+                            className="flex-1 w-full py-2 px-4 outline-none bg-transparent"
+                        />
+                    </div>
+                </motion.div>
 
                 <div
                     className="grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 "

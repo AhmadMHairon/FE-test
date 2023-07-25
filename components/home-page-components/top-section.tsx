@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-section-image.png';
 import { useRef } from 'react';
-import { Container } from '../common/container';
 import Link from 'next/link';
+import { Container } from '../common/ui/container';
 export function HomeTopSection() {
     const title = useRef<HTMLHeadingElement>(null);
 

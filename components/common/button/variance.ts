@@ -29,8 +29,6 @@ export const buttonVariants = cva(' relative whitespace-nowrap transition-all ca
                 'bg-white',
                 "bg-opacity-5",
 
-
-
                 //i need to select a class called edge to apply some effects to it
                 // 'hover:[&:not(:disabled)]:bg-gray-100 ',
                 // 'focus:ring-gray-100 focus:outline-none focus:bg-gray-100 focus:ring-1 focus:ring-offset-1',

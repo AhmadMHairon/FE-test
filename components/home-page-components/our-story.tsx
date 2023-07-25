@@ -5,7 +5,7 @@ import Img1 from '@/assets/img-1.svg';
 import Img2 from '@/assets/img-2.svg';
 import Img3 from '@/assets/img-3.svg';
 import Img4 from '@/assets/img-4.svg';
-import { Container } from '../common/container';
+import { Container } from '../common/ui/container';
 
 const OurStory = () => {
     const title = useRef<HTMLHeadingElement>(null);

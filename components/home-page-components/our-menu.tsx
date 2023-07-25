@@ -1,6 +1,6 @@
 import { useInView, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Container } from '../common/container';
+import { Container } from '../common/ui/container';
 import FoodCard from '../common/card/food-card';
 import { itemsGroupType, menuSections } from '@/constants/food';
 import { Button } from '../common/button';
@@ -22,7 +22,11 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                     className="font-bold sm:text-5xl text-3xl">
                     Our Menu
                 </motion.h2>
-                <div className="sm:flex justify-center hidden">
+                <motion.div
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.9, ease: 'easeInOut' }}
+                    className="sm:flex justify-center hidden">
                     <ul className="flex gap-8 ">
                         {menuSections.map(section => (
                             <li
@@ -37,13 +41,17 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                             </li>
                         ))}
                     </ul>
-                </div>
-                <div>
-                    <div className="relative inline-block w-48 sm:hidden">
+                </motion.div>
+                <motion.div
+                    className="sm:hidden "
+                    initial={{ opacity: 0, y: 65 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.9, ease: 'easeInOut' }}>
+                    <div className="relative inline-block w-48 bg-[#0C0A09] ">
                         <select
                             value={activeSection}
                             onChange={e => setActiveSection(e.target.value)}
-                            className="block appearance-none w-full text-primary-light py-4 px-4 pr-8 rounded leading-tight focus:outline-none bg-[#0C0A09] focus:border-blue-500">
+                            className="w-full text-primary-light py-4 px-4 pr-8 rounded leading-tight focus:outline-none bg-[#0C0A09]  ">
                             {menuSections.map(option => (
                                 <option key={option} value={option}>
                                     {option}
@@ -62,7 +70,7 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                             </svg>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 <div
                     className="sm:grid md:grid-cols-3 grid-cols-2 gap-10 mt-32 hidden"
@@ -73,7 +81,7 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                             <motion.div
                                 initial={{ opacity: 0, y: 65 }}
                                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.7 + index * 0.2, ease: 'easeInOut' }}
+                                transition={{ duration: 0.9 + index * 0.2, ease: 'easeInOut' }}
                                 key={item.id}>
                                 <FoodCard item={item} />
                             </motion.div>
@@ -86,15 +94,13 @@ const OurMenu = ({ items }: { items: itemsGroupType }) => {
                             <FoodCard key={item.id} item={item} />
                         ))}
                 </div>
-                <div className="w-full ">
-                    <Button
-                        as={Link}
-                        href="/menu"
-                        size={'medium'}
-                        className="text-2xl text-center w-[220px] py-3">
-                        View menu
-                    </Button>
-                </div>
+                <Button
+                    as={Link}
+                    href="/menu"
+                    size={'medium'}
+                    className="text-2xl text-center w-[220px] py-3 self-center">
+                    View menu
+                </Button>
             </Container>
         </section>
     );
