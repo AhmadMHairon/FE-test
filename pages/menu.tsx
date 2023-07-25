@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FoodCard from '@/components/common/card/food-card';
+import Head from 'next/head';
 
 const MenuPage = ({ items }: { items: itemsGroupType }) => {
     const [activeSection, setActiveSection] = useState('Hot Starters');
@@ -21,6 +22,24 @@ const MenuPage = ({ items }: { items: itemsGroupType }) => {
 
     return (
         <main className="min-h-screen text-center mx-auto py-32 text-secondary-main">
+            <Head>
+                <title>Yaba - Menu</title>
+                <meta
+                    name="description"
+                    content="Explore our delicious menu filled with authentic Iraqi dishes at Yaba - A Taste of Iraq."
+                />
+                <meta name="title" content="Yaba - Menu" />
+
+                <meta name="robots" content="index, follow" />
+                <meta
+                    name="keywords"
+                    content="Yaba, Iraqi food, Iraqi restaurant, authentic cuisine, kebabs, biryanis, falafels, Middle Eastern food, cultural delights, menu"
+                />
+                <meta name="language" content="EN" />
+                <meta name="revisit-after" content="7 days" />
+                <meta name="author" content="Yaba" />
+                <meta property="og:type" content="website" />
+            </Head>
             <Container className="flex flex-col justify-center space-y-14 ">
                 <motion.h2
                     initial={{ opacity: 0, y: 65 }}

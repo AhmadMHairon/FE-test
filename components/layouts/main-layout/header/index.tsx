@@ -55,7 +55,6 @@ function Header() {
                 <Container className="flex items-center justify-between">
                     <Link href="/">
                         <Image
-                            priority
                             src={yabaLogo}
                             alt="wafra-logo"
                             height={40}
